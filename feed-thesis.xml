@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>倫敦黑貓 London Black Cat</title>
+<link>https://londonblackcat.substack.com</link>
+<description>一位台灣人在香港與倫敦金融圈的觀察筆記</description>
+<language>zh-TW</language>
+<item>
+<title>用英國薪水解鎖 HSBC 全球貴賓的地理套利</title>
+<link>https://londonblackcat.substack.com/p/001-hsbc</link>
+<guid isPermaLink="false">cat-themove-001</guid>
+<pubDate>Fri, 10 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>同一間銀行、七個國家、七種門檻，靠英國年收入達標就能全球免月費，還附贈私人 GP 與全家旅遊險</description>
+<content:encoded><![CDATA[<p>在英國讀書工作的你，正在錯過一個超強的地理套利機會。我說的不是什麼灰色地帶，是 HSBC 自己設計的全球貴賓制度，只是大部分人不知道怎麼用而已。</p>
+
+<p>只要你在英國有收入，你可以用比台灣低很多的門檻，開到 HSBC 全球貴賓帳戶，然後反過來在台灣也享有貴賓待遇，包括全球免費旅遊險、私人 GP、大額秒轉帳，而且不用在台灣帳戶放一毛錢。這篇有點長，但這套流程我自己走過一遍，省下的時間跟手續費真的很有感。</p>
+
+<h2>先講痛點</h2>
+
+<p>在海外的台灣人，把錢匯回台灣或從台灣轉大額資金是一件極度痛苦的事。Wise、Revolut 這些虛擬銀行好用歸好用，但對台幣的支援很弱，額度低、匯率差、有些根本不支援。傳統銀行電匯呢？慢到不行，轉大額還會被卡，銀行要你補資金來源文件，來回搞個兩三週是常態。</p>
+
+<p>所以我研究出一套方法，核心邏輯是利用 HSBC 全球 Premier 體系裡各國開戶門檻不同這個制度差異來套利。</p>
+
+<h2>HSBC Premier 各國開戶門檻差多少？看了你就懂</h2>
+
+<p>直接上數據：</p>
+
+<ul>
+<li><strong>🇹🇼 台灣</strong>：帳上放 TWD 300 萬。沒達標？每月扣 TWD 1,000 帳管費或降級。重點是這 300 萬要「放著不動」，資金彈性非常死。</li>
+<li><strong>🇭🇰 香港</strong>：HKD 100 萬（≈ TWD 400 萬）。不達標月扣 HKD 380，前 6 個月免。</li>
+<li><strong>🇸🇬 新加坡</strong>：SGD 200,000（≈ TWD 470 萬），或有 SGD 100 萬房貸。</li>
+<li><strong>🇦🇺 澳洲</strong>：AUD 150,000（≈ TWD 310 萬），或月入帳 AUD 9,000 持續 6 個月。2020 年起免月費。</li>
+<li><strong>🇨🇦 加拿大</strong>：CAD 100,000（≈ TWD 230 萬），或 CAD 500,000 房貸，或月入 CAD 6,500 + AUM 10 萬。有月費。</li>
+<li><strong>🇺🇸 美國</strong>：USD 100,000（2024 年 8 月後調整），或月固定入帳 USD 5,000，或 USD 500,000 房貸。不達標月扣 USD 50。</li>
+<li><strong>🇬🇧 英國</strong>：GBP 100,000 儲蓄／投資，或者年收入 GBP 100,000。</li>
+</ul>
+
+<p>看到了嗎？大部分國家的門檻是你要把一大筆錢放在 HSBC 帳上不能動，但英國是唯一一個可以純靠收入達標的市場，而且這個年收入定義很寬，薪水、股票收益、收租收入全部算。在倫敦工作幾年的人，£100K 年收入門檻比在台灣卡 TWD 300 萬現金容易太多了。</p>
+
+<h2>核心機制：一地達標，全球通用</h2>
+
+<p>這是整套套利的關鍵規則，很多人不知道：只要你在任何一個國家達到 Premier 資格，你在其他國家開的 HSBC 海外帳戶，就自動豁免最低餘額要求，開戶免費、月費也免。</p>
+
+<p>翻譯成白話：你在英國靠年收入達標 → 開台灣 HSBC 帳戶 → 台灣那邊不用放 300 萬 → 照樣享受全套貴賓待遇 → 月費全免。</p>
+
+<p>這個規則適用於所有 Premier 市場。所以理論上你可以用英國這一個帳戶，橫向展開到香港、新加坡、澳洲、加拿大、美國、台灣，全部免月費、免最低餘額。</p>
+
+<h2>Step by Step：怎麼打通這條路</h2>
+
+<h3>Step 1：在英國開 HSBC Premier</h3>
+
+<p>直接在 HSBC UK 官網或 app 申請，流程非常簡單，不需要提供薪資單或任何收入證明文件，銀行看的是你帳戶裡的實際入帳紀錄。所以關鍵操作是：把 HSBC 設為你的薪轉戶，讓公司薪水每月直接入帳到 HSBC。</p>
+
+<p>如果你不想換薪轉戶，也可以用 standing order 從你現有的薪轉銀行每月自動轉一筆錢進 HSBC，放一天再轉走就好，重點是讓 HSBC 帳上有穩定的月入帳紀錄。</p>
+
+<h3>Step 2：線上開台灣 HSBC 普通帳戶</h3>
+
+<p>在台灣 HSBC 官網或 app 線上申請開戶，開的是普通帳戶。台灣帳戶不會因為你在英國有 Premier 就自動升級，這個沒關係，後面連上 Global View 就會豁免門檻。這步不用回台灣，線上搞定。</p>
+
+<h3>Step 3：用 Global View 把兩邊帳戶連起來</h3>
+
+<p>兩邊帳戶都開好之後，登入英國 HSBC 網路銀行：</p>
+
+<ul>
+<li>選「Global View」→「Link my international accounts」</li>
+<li>選台灣</li>
+<li>輸入台灣 HSBC 的網銀登入資料</li>
+<li>接受條款，完成</li>
+</ul>
+
+<p>連結完成後，你的台灣帳戶就會掛在英國 Premier 的全球 profile 底下，這時候台灣帳戶的最低餘額要求跟月費就自動豁免了，不需要放 300 萬，也不會被扣 TWD 1,000 帳管費。開戶後通常 48 小時內可以連結，部分國家可能稍久。目前 Global View 支援的市場：澳洲、香港、新加坡、台灣、英國、美國等。</p>
+
+<h3>Step 4：回台灣時辦約定帳號（或郵寄）</h3>
+
+<p>如果你想從台灣 HSBC 轉大額到其他台灣銀行帳戶，需要設定「約定轉帳帳號」，這個要本人臨櫃辦理，建議下次回台灣時順便處理。如果短期不回台，也可以在網路上下載約定帳號申請書，填好後郵寄回分行遠端完成。</p>
+
+<h3>Step 5：開始跨境轉帳</h3>
+
+<p>全部設定完成後，在 Global View 裡選來源帳戶、目標帳戶、金額跟幣別，送出。轉帳規格：</p>
+
+<ul>
+<li>每日最高 USD 200,000（或等值外幣）</li>
+<li>零手續費、零中間行費用</li>
+<li>支援超過 28 種幣別</li>
+<li>市場開盤時段可看到即時匯率報價</li>
+<li>大多數情況秒入帳</li>
+</ul>
+
+<h2>各國 Premier 福利比一比</h2>
+
+<p>既然都打通了，順便看看各國的附加福利：</p>
+
+<ul>
+<li><strong>🇬🇧 英國</strong>：最強，下面單獨講。</li>
+<li><strong>🇸🇬 新加坡</strong>：新客現金回饋最高 SGD 27,800、多幣種 Everyday Global Account、全球 HSBC ATM 免費提款。</li>
+<li><strong>🇦🇺 澳洲</strong>：免月費、Everyday Global Account 支援 11 種貨幣、刷卡 2% cashback（月上限 AUD 50）。</li>
+<li><strong>🇨🇦 加拿大</strong>：Premier World Elite Mastercard（機場 lounge）、全球即時轉帳。</li>
+<li><strong>🇺🇸 美國</strong>：Global Money Account 多幣種 prepaid、全美 ATM 免費、Premier Elite $1M+ 有更多福利。</li>
+<li><strong>🇹🇼 台灣</strong>：9 種外幣帳戶免換匯手續費、HSBC i-Invest 股票交易平台。</li>
+<li><strong>🇭🇰 香港</strong>：Premier Mastercard 回饋、全球教育諮詢、海外置產支援。</li>
+</ul>
+
+<h2>英國 Premier 的福利有多誇張？</h2>
+
+<p>英國 Premier 的健康 + 旅遊福利，估計每年價值高達 £1,500，帳戶還免月費。</p>
+
+<p>🩺 醫療福利（Square Health 提供的 HSBC Online Health Services）：</p>
+
+<ul>
+<li>電話／視訊看診英國 GP，無限次</li>
+<li>視訊第二醫療意見（專科諮詢）</li>
+<li>遠端物理治療，含初評 + 個人化療程</li>
+<li>心理健康支援</li>
+</ul>
+
+<p>在英國看過 NHS 的都知道，等一個 GP appointment 可以等到天荒地老。Premier 這個私人 GP 福利，光這一項就值回票價。</p>
+
+<p>🧬 另外還有 Cancer Bereavement Cover，若不幸因癌症身故可獲得理賠金（需完成申請，開戶 12 個月內身故不覆蓋）。</p>
+
+<p>✈️ 旅遊保險（Aviva 承保，免費）：全家保障，包含伴侶、子女、孫子女（23 歲以下）</p>
+
+<ul>
+<li>緊急醫療：最高 £10,000,000</li>
+<li>行程取消：最高 £7,500</li>
+</ul>
+
+<p>你去外面自己買一份全家旅遊險，一年隨便也要 £200-400。這裡全部免費附帶。</p>
+
+<h2>缺點呢？</h2>
+
+<p>兩個字：匯率。HSBC Global Transfer 的匯率不是市場最優的，跟 Wise 比會差一點，雖然轉帳免手續費，但天下沒有白吃的午餐，省下的手續費 HSBC 會在匯差賺回來。</p>
+
+<p>但這套方案的價值不在最省匯差，而在：</p>
+
+<ul>
+<li>大額資金自由流動，不會被卡</li>
+<li>秒到帳</li>
+<li>體系內轉帳 KYC 已完成，不用反覆補件</li>
+<li>一堆免費附加福利</li>
+</ul>
+
+<p>用他行轉個幾十萬台幣可能就開始被卡了，但 HSBC 體系內全球互轉的摩擦力低非常多。</p>
+
+<h2>整理一下這套地理套利的完整邏輯</h2>
+
+<ol>
+<li>利用英國「年收入達標」的低門檻取得 Premier 資格（設薪轉戶或 standing order 即可）。</li>
+<li>一地達標，全球豁免，其他國家免最低餘額、免月費。</li>
+<li>線上開台灣普通戶，再用 Global View 連結（豁免 300 萬門檻）。</li>
+<li>回台灣時補辦約定帳號，或郵寄申請書遠端完成。</li>
+<li>大額台幣英鎊互轉秒到，每日上限 USD 200,000，零手續費。</li>
+<li>順便拿到免費 GP、旅遊險、心理諮詢，年省 £1,500。</li>
+</ol>
+
+<p>同樣一間銀行，在不同國家的門檻差了好幾倍，這不叫套利，什麼才叫套利？</p>
+
+<p>你目前跨境匯款用的是什麼方案，有沒有比這條路更順的走法？</p>]]></content:encoded>
+</item>
+<item>
+<title>為什麼被動投資打不贏債券：Credit 市場的結構真相</title>
+<link>https://londonblackcat.substack.com/p/013-credit</link>
+<guid isPermaLink="false">cat-themove-013</guid>
+<pubDate>Sat, 16 May 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>credit 天生就不適合被指數化，主動管理的 hit rate 從來就比 equity 高</description>
+<content:encoded><![CDATA[<p>被動打敗主動這句話，過去十年幾乎變成金融圈的共識。但近一年美國和台灣的 AI 概念股一路噴漲，讓不少主動型 equity portfolio manager 重新有了反擊的籌碼。這個敘事在 equity 表層確實開始鬆動，但放到 credit 市場上，它從來就沒有真正成立過。</p>
+
+<p>根據 S&amp;P 每年發的 SPIVA 報告，結論是主動型 equity PM 長期下來大多跑輸 benchmark。但同樣是主動管理，放到 fixed income 那一側，特別是 IG corporate 和 high yield，active 的 hit rate 反而高得多，這是因為這兩個市場的結構從根本上就不一樣。</p>
+
+<p>過去十幾年大型 asset manager 在 active credit ETF 上密集下注，背後其實是整個資產管理行業在重新思考一件事：當你進入一個指數本身設計就有缺陷的市場，就必須更主動，而 passive 自然不再是預設選項。</p>
+
+<h2>由淺入深：股票和債券到底差在哪</h2>
+
+<p>每一家上市公司理論上只會有一檔股票在外流通，因為股權是公司所有權的代表，它只有一種屬性，也就是參與公司未來所有 upside 和 downside 的權利。但同一家公司在外流通的債券可能有十幾甚至幾十種，因為每一筆借款的條件都不一樣：五年的有五年的價格，十年的有十年的價格，有 senior 有 subordinated，有 secured 有 unsecured，有 fixed rate 有 floating rate，有 callable 有 non-callable，每一個維度的差異都會反映在價格和殖利率上。光是 Apple 這一家公司在外的 bond 大概就超過五十檔，每一檔都是獨立的交易標的。</p>
+
+<p>這個結構性差異是後面所有討論的起點。equity 是一檔一檔的單一商品，credit 是同一家公司之下的一整套 fixed income product suite；前者適合用一個指數去打包追蹤，後者則天生很難被指數化。所以下面來講講 bond index 的邏輯。</p>
+
+<h2>Credit market 是一個用電話和 Chat 成交的世界</h2>
+
+<p>如果你今天買 Apple 的股票，全世界都在 Nasdaq 同一個 order book 裡撮合，buy side、sell side、retail、HFT 大家看到的價格都一樣。但如果你想買 Apple 一檔特定年期的 bond，事情會完全不同：你要打電話或丟訊息給幾家有做這個 name 的 dealer，問他們的 axe，也就是 desk 上現在想 long 或想 short 的 inventory，每家報的價可能不一樣，因為他們各自的 position 和 P&amp;L 動機不同。這就是所謂的 OTC market，over-the-counter 的字面意思是櫃台交易，但在現代金融的語境裡它指的是一個由 dealer 撮合、靠雙邊報價形成的市場。</p>
+
+<p>如果你的 desk 在做 IG corporate market making，會很清楚同一檔 bond 一天之內掛出來的 bid-offer 可以差到 50 美分，inventory 壓力大的時候 axe 會非常 directional。這種微觀的價格動態完全不會出現在任何指數的計算裡，被動 ETF 只能用 evaluated price 估算公允價值，但實際成交往往是另一回事。</p>
+
+<h2>流動性的真相</h2>
+
+<p>一檔大型藍籌股一天的成交量可能是它總市值的百分之一到百分之五，這意味著你想進想出基本上不用擔心移動價格。但 credit market 完全是另一個景象：一檔典型的 IG bond 一天可能只成交個幾百萬美元，跟它幾十億美元的 outstanding 比起來完全不在一個量級，更不用說有些 bond 真的好幾個禮拜都不會成交，這在新興市場債和 high yield 更明顯。</p>
+
+<p>這種低流動性帶來兩個結果：</p>
+
+<ul>
+<li><strong>price discovery 緩慢。</strong>當 macro 發生變化的時候，bond 的價格反映可能要好幾天才會 catch up，這對主動 manager 是 alpha 機會，因為你可以在資訊還沒被完全 priced in 的時候 reposition。</li>
+<li><strong>forced selling 的時候被動工具會付出昂貴的代價。</strong>因為它們必須按照指數權重買賣，沒有 timing 也沒有 issuer selection 的空間。</li>
+</ul>
+
+<h2>Bond index 的設計：違反直覺的權重邏輯</h2>
+
+<p>S&amp;P 500 用 market cap 加權，意思是市場越值錢的公司權重越高，Apple、Microsoft、Nvidia 這些公司因為市值大佔了 ETF 很大一部分權重。這個邏輯放在資產配置上至少還說得通，因為這些公司被市場認可、有 cash flow 支撐、是經濟的主要參與者。</p>
+
+<p>但 bond index 是用 debt outstanding 加權，誰借得最多誰權重最大。這個邏輯放到企業債上會出現一個奇怪的現象：最會發債的公司權重最高，但會發債不代表 credit quality 好，可能只是代表這家公司資本結構偏向 debt financing，或者它在 M&amp;A 上很激進需要持續 refinancing。這跟散戶心裡想像的分散風險差非常遠。</p>
+
+<p>舉個具體例子，過去十年美國 IG corporate 市場裡 Verizon、AT&amp;T、Goldman Sachs、JPMorgan 這些大發行人的權重一直很高，不是因為它們最值得借錢，而是因為它們發行量最大。如果你被動買 LQD 或類似的 IG ETF，最大的 exposure 都集中在這些 issuer 身上，這是一個結構性偏誤。</p>
+
+<h2>Fallen angel 是 passive credit 投資人最痛的傷</h2>
+
+<p>Fallen angel 指的是從 investment grade 被降評到 high yield 的 bond。這在 credit 世界是大事，因為很多 IG-only mandate 的基金被規定不能持有 sub-IG 的 bond，所以一旦降評發生，這些基金必須在短時間內賣掉。被動 ETF 也是一樣，它們追蹤的是 IG index 就不能持有 HY，必須 forced sell。</p>
+
+<p>問題是 forced selling 的時候市場知道你要賣，dealer 會把 bid 拉得很低，賣掉的價格通常比真實 fair value 低很多。最經典的例子是 2020 年 3 月 Ford 被降評到 junk，幾百億美元的 IG 基金同時要出貨，bid-offer spread 在幾天內擴大到平常的好幾倍，被動 IG 持有人在那個時點吃了一大筆 mark-to-market 的損失。</p>
+
+<p>主動 credit manager 的價值在這裡很直接：他們可以提前判斷哪些 BBB 的 issuer 信用在惡化，預先 underweight 或清倉，避開 forced selling 的痛點，這是純被動工具做不到的事。</p>
+
+<h2>New issue concession：primary market 的隱形 alpha</h2>
+
+<p>如果你的 desk 服務 buy-side 客戶，應該會很熟悉這個流程：每當一家公司要發新債，sell-side 的 syndicate desk 會做 price talk，也就是建議的發行利差，然後 book building 收集投資人意願，最後定價的時候通常會給投資人 5 到 15 bps 的 concession，意思是新債的 yield 會比同一家公司類似年期的 secondary bond 高一點。這個 concession 是發行成功的潤滑劑。</p>
+
+<p>主動 credit fund 可以決定要不要參與每一個 new issue，遇到 concession 大、credit story 好的就積極投標，遇到 priced too tight 的就跳過，這是 alpha 的一個穩定來源。被動 ETF 的玩法完全不同，它們必須等 bond 進入 index，通常是發行後幾個月才能買，那時候 concession 已經消失，bond 的 spread 已經 tighten 到 secondary level，被動投資人就少了這 5 到 15 bps。</p>
+
+<p>長期累積下來，一個活躍參與 primary market 的 active manager 光靠 new issue concession 就可以累積每年 10 到 20 bps 的 alpha，這在 credit 的世界已經是很可觀的數字。</p>
+
+<h2>Active credit PM 一天真正在看什麼</h2>
+
+<p>如果你的 desk 是做 buy-side credit，一天大概是這樣展開的。早上六點半到七點先看 overnight 亞洲和歐洲的 risk-on/risk-off，看 sell-side 各家的 morning note，重點是 spread 動向、new issue pipeline、和今天的 macro data point；七點到九點是和 sell-side 開 morning call，聽各家對 sector 和 issuer 的 view，這時候 syndicate desk 會丟出今天可能發行的 deal，PM 開始評估要不要參與。</p>
+
+<p>九點到下午三點是執行，包括 secondary 交易、new issue 的 IOI，也就是 indication of interest，和內部的 credit committee 討論。credit PM 跟 equity PM 最大的差別在於他們的時間有相當大一部分花在跟 sell-side 互動上，因為 axe、inventory、flow info 這些都是 alpha 的來源，沒有跟 dealer 維持好關係根本拿不到好的 fill。</p>
+
+<p>下午三點之後通常是研究和 model 更新。credit 的研究比 equity 更注重 cash flow 和 balance sheet，因為 default risk 是 credit 唯一在意的尾端風險。equity 投資人在意 growth，credit 投資人只在意 you get your money back，這個 mindset 的差別會反映在 portfolio construction 的每一個 decision 上。</p>
+
+<h2>Curve、sector、和 relative value trade</h2>
+
+<p>Equity 投資人面對的就是一檔股票，要嘛買要嘛賣要嘛 short，但 credit 投資人面對的是一個 issuer 的整條 yield curve。同一家公司 2 年、5 年、10 年、30 年的 bond spread 都不一樣，curve 形狀本身就是 trade 機會，如果你的 desk 認為一家公司短期信用沒問題但長期有疑慮，可以 long short-end short long-end，這叫 curve flattener。</p>
+
+<p>Sector rotation 也是 active credit 的重要 lever。不同 sector 的 spread 對 macro 因子的敏感度差很多：能源 sector 對油價敏感，金融 sector 對 yield curve 和 regulatory 敏感，REITs 對利率敏感，消費 sector 對 PCE 敏感。主動 manager 可以根據 macro view 做 sector tilt，被動 ETF 只能按 index 權重持有。</p>
+
+<p>高階的玩法是 relative value trade：同一個 sector 裡兩家 credit profile 類似的公司但 spread 差距異常大，這時候 PM 可以 long the cheaper one short the richer one，捕捉 spread convergence。這在 equity 比較難做，因為 equity 的 dispersion 通常更隨機，但 credit 因為價格反應慢、流動性差，這種 mispricing 持續的時間相對長。</p>
+
+<h2>PIMCO BOND：active core 的 ETF 化先驅</h2>
+
+<p>PIMCO BOND (Total Return Active Exchange-Traded Fund) 在 2012 年推出時，是業界第一個真正試圖把旗艦 active fixed income strategy 完整 ETF 化的產品。它對標 Bloomberg US Aggregate Bond Index，但管理方式是 PIMCO 著名的 Total Return 哲學，也就是不只追求 income，而是透過 sector rotation、duration management、curve positioning 和 security selection 來尋求 total return 的最大化。</p>
+
+<p>它的核心設計邏輯有幾個：第一是 active share 在 fixed income ETF 裡相對高，PIMCO 會明確 underweight 或 overweight 特定 sector，例如 Treasury vs corporate vs MBS，來反映他們的 macro view；第二是 duration 不一定貼著 benchmark，可以根據 rate view 做主動偏離；第三是它可以在 plus sleeve 裡放入 below-investment-grade、emerging market、和 non-agency MBS 等 benchmark 以外的 exposure。</p>
+
+<p>BOND 的歷史意義在於它證明了一件事：傳統 active bond mutual fund 的 strategy 完全可以在 ETF 包裝下執行，並且 ETF 的 transparency、liquidity、和較低 fee 對投資人是真實的優勢。這檔產品奠定了後面整個 active fixed income ETF 行業的發展路徑。</p>
+
+<h2>BlackRock BINC：multi-sector flexible income 的新代表</h2>
+
+<p>BlackRock BINC (Flexible Income ETF) 在 2023 年推出，跟 BOND 走的是完全不同的路線。它沒有貼著 single benchmark，而是 unconstrained 的 multi-sector approach，也就是 manager 可以在 IG corporate、high yield、EM debt、securitized credit 之間自由 allocate，主要目標是 income generation 而非 benchmark relative return。</p>
+
+<p>BINC 的設計反映了當代 fixed income market 的一個現實：傳統 AGG 這類 benchmark 的 yield 已經不能滿足很多投資人，特別是退休族群和需要 income 的機構，要拿到吸引人的 income 必須突破 IG-only 的限制進入 cross-over 和 HY 區域，同時要有能力做 active credit selection 來控制 default risk。</p>
+
+<p>它的 lever 比 BOND 更廣：第一是 sector unconstrained，沒有 benchmark weight 的束縛；第二是可以使用 derivative 包括 CDX 和 interest rate swap 做 hedge；第三是它對 emerging market 和 securitized credit 的 exposure 可以比傳統 core 大很多。這三個 lever 加起來，目標是給投資人比傳統 IG ETF 多 100 到 200 bps 的 yield，當然 risk 也對應更高。</p>
+
+<p>BINC 在 launch 的第一年規模就突破 50 億美元，反映出市場對 unconstrained active credit ETF 的需求其實非常旺盛。這個產品線後面預期會有更多競爭者加入，JPMorgan 的 JCPB 和 JPIE、Fidelity 的 FBND 都是同一條賽道上的玩家。</p>
+
+<h2>Cycle 對 active credit 的意義</h2>
+
+<p>Active credit 在不同 cycle 階段的 alpha 來源不一樣。在 spread tightening 的環境，alpha 主要來自 security selection 和 sector rotation，因為大趨勢是 risk-on，重點在找到 spread 還沒 tighten 完的 pocket。2020 年下半年到 2021 年是典型例子，covid 谷底之後 active manager 普遍跑贏 passive，因為他們敢於進場 distressed 和 BBB 名字。</p>
+
+<p>在 spread widening 的環境，alpha 主要來自 downside protection 和 credit selection，因為大趨勢是 risk-off，重點在避開 default 和 fallen angel。2022 年的 rate hike 環境是個例子，那年 IG passive ETF 表現相對被動，active manager 因為可以提早做 duration 和 credit 雙降而表現相對好。</p>
+
+<p>最有趣的是 carry environment，也就是 spread 既不大幅 tighten 也不大幅 widen，只是時間在走。這時候 active 的 alpha 主要靠 new issue concession、curve positioning、和 relative value trade 累積，這也是大部分時候 credit market 的常態。</p>
+
+<h2>對亞洲投資人的真正 implication</h2>
+
+<p>對台灣和香港的個人投資人來說，過去十年買美國 fixed income ETF 的主流選擇基本上是 AGG、LQD、HYG、TLT 這些 passive 工具，邏輯是 fee 低、透明、相對流動性好。但這個邏輯放到今天，遇到了兩個新的挑戰：第一是 fee 已經不是 active 不能打的，active credit ETF 的 fee 跟 passive 差距已經縮小到 10 到 30 bps，這個 gap 用 alpha 可以打回來；第二是 macro 環境變得更 regime-driven，rate cycle 比過去十年劇烈，spread 也更 volatile，被動工具在這種環境的 underperformance 比過去明顯。</p>
+
+<p>實際 allocation 的建議當然要看每個人的情況，但一個值得思考的框架是把 fixed income 部位拆成兩塊：一塊是 duration core，用 passive 工具拿，因為 Treasury 和 duration risk 本身沒什麼 active 空間；另一塊是 credit alpha，用 active ETF 像 PIMCO BOND 或 BlackRock BINC 拿，捕捉 credit selection 和 sector rotation 的價值。這個 barbell 結構比過去全 passive 或全 active 都更 robust。</p>
+
+<p>要記住的是，credit alpha 不像 equity alpha 那麼戲劇化，它是 30 到 80 bps 一年累積出來的，但因為 fixed income 投資人的回報基期本身就低，這個百分比放到長期 compounding 的角度看，會比想像中更顯著。</p>
+
+<p>你的 fixed income 部位，現在是全 passive，還是已經分了一塊出來給 credit alpha？</p>]]></content:encoded>
+</item>
+<item>
+<title>為什麼你買不到好價格：公司債市場的階級結構</title>
+<link>https://londonblackcat.substack.com/p/post-014</link>
+<guid isPermaLink="false">cat-themove-014</guid>
+<pubDate>Sun, 17 May 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從 primary allocation 到 odd lot 折價，single bond 市場對誰都不公平，而 active credit ETF 補上了什麼缺口</description>
+<content:encoded><![CDATA[<p>如果你的 desk 還在硬抱 30 年期美債部位，這個月應該被噹爆了，reward 早就對不起 risk。這也是過去半年 buy-side 內部討論最頻繁的問題：2026 年的 fixed income allocation 到底該怎麼配。</p>
+
+<p>現在的市場是一個尷尬的組合。Fed 已經啟動降息週期把短端壓下來，但長端因為財政赤字膨脹、term premium 重新計價、海外央行買盤縮手而不肯下來，整個 curve 從去年的 inverted 走到今年明顯 steepening，通膨卡在 2.5 到 3% 之間，美元在 DXY 100 附近偏弱，所有 macro setup 都不利於 long duration。</p>
+
+<p>在這個環境裡如果你還想做 credit allocation，問題就不是要不要買，而是怎麼買。這也是為什麼這一年圈內把 single name corporate bond 的部位幾乎都換成了 active credit ETF——因為對一個不在 sell-side 大客戶名單頂端的買方來說，single bond 真實的執行成本遠比表面高。</p>
+
+<h2>2026 年 5 月為什麼是個尷尬的時點</h2>
+
+<p>當下這個 macro setup，Fed funds 已經從週期高點降到 4% 附近，市場 pricing 還會再降兩碼，這部分屬於 cyclical easing，理論上應該帶動整條 curve 下移。但實際情況是 10 年期 yield 卡在 4.5% 附近、30 年甚至維持在 5% 以上，整個 curve 從一年前明顯 inverted 變成現在的 bull steepening，短端在動長端不動，這背後是長端在反映另一組更深的敘事。</p>
+
+<ul>
+<li><strong>財政赤字。</strong>美國年度赤字現在超過 GDP 的 7%，這是和平時期歷史罕見的水準，意味著 Treasury 每個月要發行的 net supply 都在創新高，光靠 Fed 與本地銀行根本吸收不完。</li>
+<li><strong>term premium 的重新計價。</strong>term premium 是市場為了承擔未來利率不確定性所要求的額外補貼，疫情期間因為 QE 把它壓到負值，現在隨著 QT 持續、外國央行買盤結構性減持，term premium 已經從負值回到 50 bp 以上，而這個過程還沒看到盡頭。</li>
+<li><strong>通膨黏性。</strong>core PCE 黏在 2.7% 上下已經四個季度沒有實質進展，service inflation 被薪資與 shelter 撐住，goods inflation 因為 tariff 政策反而開始翹起來，Fed 的 2% 目標短期看不到達成的可能性。</li>
+<li><strong>美元。</strong>DXY 從去年高點 107 一路走到 99 到 101 區間，部分是降息預期，部分是市場開始 price in fiscal dominance 的風險，弱美元會讓海外持有人持有美債的誘因更低，又回頭推升長端 yield。</li>
+</ul>
+
+<p>把這四個敘事疊起來，long duration 的下檔風險遠大於上檔機會，這就是為什麼這個時點不該硬抱長天期國債。</p>
+
+<h2>corporate bond 市場長什麼樣子</h2>
+
+<p>很多人對 bond market 的想像是跟股票市場一樣，打開 app 輸入 ticker 按一下就能買賣。這在 Treasury 上勉強成立，但在 corporate bond 上完全不是這回事。</p>
+
+<p>美股是高度集中化的 exchange market，所有訂單都進到同一個 limit order book，所有人看到同一個 best bid 與 best offer。corporate bond 市場則是一個極度分散的 OTC dealer network，你想買一張券要先找一個 dealer 報價，每家 dealer 看你是誰、看他自己的 inventory、看當下市場的 axe 才會給你價。</p>
+
+<p>這意味著一個很重要的結果：corporate bond 市場根本沒有所謂的 best bid 與 best offer。同一張 IBM 五年期票券，Goldman、JPM、Citi、Barclays 各家報的 bid-offer 可能差 5 到 15 bp，bid-offer spread 本身也可能是 5 到 20 bp，加起來你買一張 bond 的瞬間就可能損失一季的 carry。</p>
+
+<p>圈外人看不到這個成本，是因為很多零售券商給你看到的是 indicative price，那個價格通常已經把 markup 內含，你以為自己拿到 mid，實際上拿到的是 mid 加 30 到 50 bp 的零售加價。</p>
+
+<h2>Fragmentation 的真實成本</h2>
+
+<p>Fragmentation 的問題對 buy-side 自己也是頭痛的事。一張新發行的 corporate bond 在 primary market 上的 allocation 完全是 dealer 主觀決定，underwriter 會根據你過去給他多少 trading flow、你是不是核心客戶、你的 portfolio size 來分配。</p>
+
+<p>Allocation queue 上有名字的是那些每年能給 sell-side 上千萬美元手續費的大型 asset manager 與 hedge fund，沒有名字的就只能在 secondary market 上跟 dealer 一張一張慢慢談，價格通常已經高了一截。</p>
+
+<p>如果你的 desk 在這個 ecosystem 裡屬於中下段，例如 AUM 幾億美元的 boutique 或某個 family office 的 trading book，你會發現你想買的券很多時候根本拿不到 size，或者拿到的是 dealer 自己 inventory 裡比較不好處理的 odd lot，價格還比真正的 institutional fill 差 10 到 20 bp。</p>
+
+<p>這個現象不會出現在任何公開報告裡，但實際操作過幾年的人都會深深體會到：single name corporate bond market 並不是一個對所有 buy-side 都公平的市場，它有清楚的階級結構。</p>
+
+<h2>Minimum size 與 odd lot 折價</h2>
+
+<p>接著看 minimum size 的問題。IG corporate bond 的 institutional clip size 通常是 100 萬美元 face value 起跳，比較流動的券甚至以 500 萬為單位在 trade，HY 可以做到 25 萬但 odd lot 立刻面臨 30 到 80 bp 的折讓，這個折讓在 Bloomberg trade book 上看不到，但結算時一定會反映在你的成交均價上。</p>
+
+<p>這帶來一個結構性的不對稱。假設你管的是一個 50 萬美元的個人 portfolio 或一個 200 萬美元的小型基金，你想做 diversified IG exposure 至少要 20 檔以上的 single name 才有意義，這在數學上根本做不到，因為每張券 25 萬到 100 萬的起跳金額，你的全部資金加起來都不夠買齊。</p>
+
+<p>最後你要嘛集中持有 5 到 10 檔 issuer、接受個別違約風險的放大，要嘛跑去買 odd lot、接受 30 到 80 bp 的折價長期吃掉 yield。這也是為什麼很多 retail 與 small institutional 的 fixed income portfolio 看起來 yield 不錯，回頭去看 total return 卻長期跑輸 index，差的就是這些隱藏成本。</p>
+
+<h2>Liquidity 的不對稱</h2>
+
+<p>Liquidity 是這三個問題裡最被低估的一個。ETF 的 secondary market 是 exchange-traded，每天可以做幾十億美元的 turnover，bid-ask 通常只有 1 到 3 bp，你想進場想出場跟交易股票一樣即時。</p>
+
+<p>Single bond 的 secondary 是完全不同的世界。underlying 那些 corporate bond 一個月可能只交易兩三次，trade by appointment 的意思就是字面上的意思：你想賣一張 size position 要先打電話給 sales，sales 去 desk 問 trader，trader 看自己有沒有意願 warehouse 這個 risk，如果沒有就要幫你出去找 buyer，整個過程可能要兩三天，最後成交價可能比你期望的 mid 差 20 到 50 bp，碰到市場動盪的時候差 100 bp 都不算誇張。</p>
+
+<p>這個 liquidity 不對稱在平時感受不到，但在壓力時點會集中爆發。2020 年 3 月的 COVID dash for cash、2022 年下半年的英國 gilt crisis、2023 年的 SVB 事件期間，都出現過 single bond market 短暫凍結但 ETF 仍然正常 trade 的情況，那時候持有 ETF 的人能在合理價格出場，持有 single bond 的人只能等市場恢復或接受極差的價格。</p>
+
+<p>對 buy-side 而言，能夠隨時 rebalance、能夠 size up size down 不被流動性綁架，是 risk management 最基本的要求，這個要求在 single bond 上常常做不到。</p>
+
+<h2>active credit ETF 到底解決了什麼</h2>
+
+<p>active credit ETF 不是把 single bond 隨便包一包賣給你，它的價值來自三個層面。</p>
+
+<ul>
+<li><strong>wrapper 效應。</strong>把幾百檔 underlying 的流動性打包成一個 exchange-traded 的 wrapper，個人投資者可以用零佣金券商帳戶拿到接近 institutional 的進出條件，這是 single bond 市場結構不可能提供的。</li>
+<li><strong>PM 的 institutional access。</strong>這檔 ETF 背後是大型 asset manager 在管，他們在 sell-side 客戶名單最頂端，能在 primary market 拿到 best allocation，能在 secondary market 用 size 換到 better pricing，這些 edge 個別投資者拿不到，但透過 ETF 可以分到一杯羹。</li>
+<li><strong>創建贖回機制。</strong>ETF 的 AP 可以用 in-kind delivery 來處理大型 inflow outflow，避免基金被迫在 stress 時點去市場上 fire sale underlying，這個結構讓 ETF 在 liquidity 壓力下反而比傳統 open-end mutual fund 更穩定。</li>
+</ul>
+
+<p>為什麼一定要 active 不能 passive？這是 credit 與 equity 最大的差別。equity index 是 cap-weighted，市場自然會把好公司推到 top weight；credit index 是 debt-weighted，發債最多的公司 weight 就最大，這意味著被動 credit index 系統性地把錢加碼到負債最重的公司身上，這在 risk allocation 邏輯上完全反直覺。</p>
+
+<p>active credit 的 PM 可以根據 credit research 避開財報季前的 idiosyncratic risk、可以根據 curve shape 調整 duration、可以在 sector rotation 上做主動配置、可以在 stress 時點縮減 high beta 部位，這些都是 passive 結構性做不到的。</p>
+
+<h2>回到長天期國債，為什麼現在不該抱</h2>
+
+<p>把所有東西串起來回看長天期國債的問題。30 年期 duration 接近 18，意思是 yield 上升 50 bp 你的 mark to market 損失就 9%，這個 risk 在現在的 macro setup 下是嚴重不對稱的。</p>
+
+<p>下檔來源包括財政供給壓力、term premium 持續修復、tariff 通膨、外國持有人結構性減持、地緣政治帶來的避險溢價反轉，每一個都還在加劇而不是緩解。</p>
+
+<p>上檔在哪裡？理論上如果出現深度衰退、Fed 大幅降息、市場全面 risk-off 湧入 Treasury，長端 yield 可能下來 100 bp 以上帶來接近 18% 的 capital gain，但這個情境發生的機率在當前不算高，而且即便發生，bull steepener 的劇本裡長端跌幅遠小於短端，你的 long duration trade 賺到的也有限。</p>
+
+<p>換句話說，現在抱 30 年期美債就是賭一個機率不高、賠率也不夠好的 trade，這在 risk-adjusted return 的角度是不及格的，沒有 PM 能對著 IC 把這個 position 解釋得理直氣壯。</p>
+
+<p>active credit ETF 的好處剛好補上這個缺口。PM 可以根據 curve shape 動態縮短或拉長 duration、可以加減 spread sector、可以避開單一 issuer 的事件風險、可以在 macro 轉折點上調整整體風險敞口，這些 flexibility 是抱單一長天期 bond 完全沒有的。在 macro 結構性逆風的環境下，這種主動管理的價值會被放大。</p>
+
+<h2>給三類讀者的 take</h2>
+
+<p>如果你是對金融有興趣的學生，記住三件事就好：long duration 在通膨黏性與財政赤字並存的環境下是高風險選項、corporate bond market 對小投資人本質上是不公平的、active credit ETF 是目前最 efficient 的入場方式。</p>
+
+<p>如果你是已經在 buy-side 工作的人，這篇講的東西你大概都熟，但值得提醒 2026 年的 setup 確實值得把 single name 部位往 ETF 移動，因為執行成本與 risk 不對稱已經到了應該行動的程度。</p>
+
+<p>如果你是 sell-side 的 fixed income trader 或 sales，這些 dynamics 你比誰都清楚，但客戶現在問你怎麼配 credit，最誠實的答案越來越不是某一張 bond，而是某一檔 active credit ETF，這對 sell-side 的傳統手續費結構有點尷尬，但市場結構已經朝這個方向走了。</p>
+
+<p>最終回到那個問題：2026 年的 fixed income allocation 該怎麼配？答案我覺得不是某一個 instrument，而是承認 single bond 對絕大多數買方來說是一個 access 不公平、cost 被低估的市場。能用 ETF 拿到 institutional pricing 與 active management 的部位，就不要去硬碰那個你不在客戶名單頂端的 dealer market。</p>]]></content:encoded>
+</item>
+<item>
+<title>Senior Loan ETF 偷走的那兩個百分點</title>
+<link>https://londonblackcat.substack.com/p/017-senior-loan-etf</link>
+<guid isPermaLink="false">cat-themove-017</guid>
+<pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從 settlement mismatch 到 dealer mark，拆解那些不會出現在對帳單上、卻年年吃掉你報酬的隱形成本</description>
+<content:encoded><![CDATA[<p>Senior loan ETF 的 tracking error 常年落在 100 到 300 bps 之間。這個數字放在股票 ETF 的世界裡幾乎是不可想像的，但在 senior loan 的世界裡卻是常態。</p>
+
+<p>問題的根源在這個資產類別本身。Leveraged loan 的交割週期是 T+7 到 T+20，有些 distressed 的標的更長，但 ETF 卻是每天都可以買賣的工具。當你把一個天生流動性很差的東西包裝成每秒鐘都在報價的 wrapper，中間必然出現很多看不見的 gap，這些 gap 就是你的隱形成本。</p>
+
+<p>這些成本在風平浪靜的時候會被低估，因為 NAV 計算用的是 dealer mark，不是真實成交價格。但只要市場一有壓力，買賣價差立刻拉開到兩到三個百分點，那些平常藏起來的 cost 會在一兩個交易日內全部跳出來，這也是為什麼 BKLN 和 SRLN 在 2020 年三月和 2022 年九月都出現過 NAV 大幅折價的場景。</p>
+
+<p>以下就展開講，senior loan ETF 的 tracking error 到底是從哪裡來的。</p>
+
+<h2>Settlement mismatch：把 T+20 的東西塞進 T+2 的盒子裡</h2>
+
+<p>整個 senior loan ETF 的結構性問題，都可以從一個簡單的事實開始講起：bank loan 是 bilateral 簽訂的貸款合約，每一筆交易都要走 assignment 程序，律師審文件、agent bank 確認、雙方簽字，這個流程在 LSTA 標準下平均是 T+7，碰到比較複雜的 covenant 修改或 distressed 標的可能拖到 T+20 甚至更久。</p>
+
+<p>但 ETF 是 T+1 交割的工具，市場參與者每天都能用 NAV 加減一點 premium 或 discount 進出，這中間的時間差不會憑空消失，它會變成基金經理人手上的一個 funding gap。當一檔 senior loan ETF 收到 100 million 的申購，它今天就要給投資人 ETF 份額，但它要真的買進對應的 loan 可能要等三週後才能完成交割。這三週裡那 100 million 要嘛放在現金、要嘛先買 high yield bond 或 CLO 當代理部位、要嘛動用信用額度先 leverage 進場，每一種選擇都有它自己的成本。</p>
+
+<h2>Cash drag 是最被低估的損耗</h2>
+
+<p>ETF 為了應付每天可能的贖回，必須保留 5% 到 15% 的現金或現金等價物在帳上，這個比例在贖回壓力大的時候會更高。而現金的收益率永遠低於 senior loan 本身的票面利率，這個差距就是純粹的 drag。</p>
+
+<p>假設 senior loan 的 yield 是 SOFR + 350，現金的 yield 是 SOFR，那麼 10% 的現金部位每年就會造成大約 35 bps 的拖累。這還沒算上贖回潮時被迫低價賣出最流動 loan 來換現金所產生的 forced selling cost。2020 年三月那波 BKLN 出現 200 bps 以上的折價，很大一部分就是 authorized participant 在 NAV 上認知到 ETF 必須賤賣手上最容易脫手的 loan，所以在 secondary market 把 ETF 價格直接砍下來預先反映這個成本。</p>
+
+<h2>Dealer mark vs 真實成交價：那個你看不到的 30 bps</h2>
+
+<p>Senior loan 沒有 continuous market，它的價格是 LSTA、IHS Markit、Loan Pricing Corp 這幾家提供商每天收盤後跟主要 dealer 詢價得出的 composite mark。這個 mark 在平時跟真實成交價可能差個 10 到 30 bps，平時看不出來，但只要市場一動，dealer 不願意承擔 inventory risk 的時候，bid-ask spread 會從正常的 50 bps 立刻拉開到 200、300 bps。</p>
+
+<p>這意味著 ETF 的 NAV 在壓力期實際上是被高估的，因為它用的 mark 並不反映你真正能成交的水位。這時候 secondary market 上 ETF 的折價並不是 mispricing，而是市場在告訴你 NAV 本身才是錯的。這個現象有個專有名詞，在 fixed income ETF 的學術文獻裡叫做 price discovery function，但對散戶來說，它就是莫名其妙地虧了三個百分點。</p>
+
+<h2>Sampling 帶來的 basis risk</h2>
+
+<p>S&amp;P/LSTA Leveraged Loan 100 Index 包含 100 檔最大、最流動的 institutional loan，但實際上即使是這 100 檔，也不是每一檔都能隨時買得到。有些 loan 雖然發行規模大，但 secondary market 的 turnover 極低，可能一個月只成交一兩次。</p>
+
+<p>所以 senior loan ETF 普遍採用 representative sampling 而不是 full replication，它會挑選大約 200 到 300 檔 loan 來模擬指數的 sector、credit、duration 暴露。這個 sampling 在平時沒問題，但當市場結構發生變化，比方某個 sector 的 loan 突然集體下跌，而 ETF 手上剛好沒有那些 loan，或者持有的權重跟指數不一樣，tracking error 就會在那一刻被放大。</p>
+
+<h2>Credit facility 的成本：你看不到的槓桿費用</h2>
+
+<p>幾乎所有 senior loan ETF 都會設置一條 credit facility，用來應付 settlement mismatch 帶來的短期 funding 需求。這條 facility 平時不動用，但當有大額申購進來、loan 還沒交割完成、又不想被 cash drag 拖累的時候，基金會先 draw 一部分額度去 leverage 買 high yield 或 CLO 當代理部位，等真正的 loan 交割後再 unwind。</p>
+
+<p>這個操作本身合理，但 credit facility 的利率通常是 SOFR + 100 到 150 bps，而且 commitment fee 即使不動用也要付，這部分成本最後都會吃掉 net return。這也是為什麼 senior loan ETF 的 expense ratio 看起來只有 0.65% 左右，但實際的 all-in cost 可能要再加 50 到 100 bps。</p>
+
+<h2>Why this matters</h2>
+
+<p>理解 senior loan ETF 的 tracking error 結構不是為了勸退誰。這個產品在升息週期確實有它的價值，floating rate 的特性讓它在利率上行時比 high yield bond 更有抗跌性。但你要清楚知道這個 ETF wrapper 並不是免費的，它把一個原本只有機構投資人能玩的 OTC 工具變成散戶可以買賣的形式，這個 packaging 本身就是有成本的，這個成本平時藏在 NAV 後面，壓力期會集中爆發。</p>
+
+<p>真正了解這個產品的人會把 senior loan ETF 當作戰術性配置的工具，而不是長期持有的核心部位。他們會在 spread 收緊、市場流動性好的時候進場，在 spread 開始走擴、credit cycle 轉折前出場，而不是 buy and hold 然後納悶為什麼一年下來 total return 比指數少了兩個百分點。</p>
+
+<p>那兩個百分點不是消失了，它從你按下買進按鈕的那一刻就開始被收走。只是你不會在對帳單上看到任何一筆叫做 settlement mismatch fee 或 cash drag cost 的扣款，它們躲在 NAV 的折價、躲在 sampling 的偏差、躲在 credit facility 的利息裡，安安靜靜地告訴你，這個世界上沒有真的可以同時擁有 daily liquidity 和 illiquid asset yield 的東西。</p>]]></content:encoded>
+</item>
+<item>
+<title>一兆美元的無風險誘惑：拆解 Basis Trade</title>
+<link>https://londonblackcat.substack.com/p/019-basis-trade</link>
+<guid isPermaLink="false">cat-themove-019</guid>
+<pubDate>Mon, 08 Jun 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從美債 repo 到幣圈穩定幣，同一台印鈔機的兩根軸為什麼會斷</description>
+<content:encoded><![CDATA[<p>想像一下，你發現了一台印鈔機：你買進一樣東西，同時賣出幾乎一模一樣的東西，鎖住中間那一點點價差。價格漲跌跟你無關，你只負責把 gap 中間的錢撿起來。聽起來像穩賺不賠對吧？問題是那道 gap 薄得像紙，薄到你必須借 20 倍、50 倍的錢去做，它才值得做。</p>
+
+<p>於是「無風險套利」這幾個字，在槓桿的放大鏡下，悄悄變成了 2020 年三月差點讓美國國債市場停擺的那道裂縫，也成了你錢包裡那枚「年化 15%」穩定幣背後真正的引擎。</p>
+
+<p>這就是 Basis Trade（基差交易），它是一門全世界最聰明的對沖基金和最敢衝的幣圈玩家，都在做的同一門生意。這篇文章會從最直覺的概念開始，一層一層往下挖到機構真正在操作的細節。看完之後，你不只會僅聽過基差交易，而是真的看得懂它怎麼賺錢，以及它為什麼跟你有關。</p>
+
+<h2>一、什麼是 Basis Trade？</h2>
+
+<p>先把名詞拆開解釋。「Basis（基差）」就是同一個資產，「現貨價格」和「期貨價格」之間的差距。</p>
+
+<p>比特幣現貨報價 65,000 美元，三個月後到期的期貨報價 66,500 美元，這 1,500 美元、約 2.3% 的差距就是基差。期貨為什麼比現貨貴？因為持有到未來有時間成本（資金占用、機會成本），市場願意為「延後交割」付一點溢價；牛市裡大家搶著用期貨做多、追槓桿，溢價會被推得更高。</p>
+
+<p>Basis Trade 就是同時建立方向相反的兩條腿（legs）：買進便宜的現貨，放空昂貴的期貨。之後價格漲到天上還是跌到地板都無所謂，你一邊賺、一邊賠，方向性風險互相抵銷，這叫「Delta 中性（delta-neutral）」。你真正賺的，是期貨到期、價格向現貨收斂（convergence）的那一刻，那段被你提前鎖住的價差。期貨合約有到期日，到期那天期貨價格大概率會等於現貨，所以這段收斂幾乎是數學上大概率的結果。</p>
+
+<blockquote><p>在正常交割／結算機制下，期貨與其可交割現貨或結算指數會受到套利力量推動而收斂，但仍存在基差、交割選擇權、CTD 切換與結算指數風險，所以說大概率但不是絕對。</p></blockquote>
+
+<p>到這裡聽起來像撿錢。但這裡藏著整個故事的關鍵轉折：<strong>單筆基差可能只有 0.3%、0.5%，薄得不值一提。</strong>要把它變成一門養得起整支基金的生意，唯一的路是借錢加槓桿，把同一招重複放大幾十倍。而槓桿，正是「無聊的套利」變成「系統性風險」的引信。接下來我們就把這條引信拆開看。</p>
+
+<h2>二、深入引擎室：機構的美債基差交易到底怎麼運作</h2>
+
+<p>這是 Basis Trade 最原始、規模最大、也最值得拆解的版本，玩家是全球頂級對沖基金。表面只有一句話：買進現貨美國國債，放空對應的國債期貨。但魔鬼全在細節裡。</p>
+
+<p><strong>第一個細節：你到底放空哪一張期貨、買哪一張債？</strong>國債期貨到期時，賣方（空方）可以從「一籃子」符合資格的債券裡，挑一張交割給買方。理性的空方一定挑對自己最划算的那張，這就叫「最便宜可交割債券」（Cheapest to Deliver, CTD）。因為大家都預期空方會交 CTD，所以期貨價格實質上是跟著 CTD 在走的。基差交易者要買的現貨，就是這張 CTD。</p>
+
+<p><strong>第二個細節：怎麼知道這筆值不值得做？</strong>答案是一個關鍵指標隱含 repo 利率（Implied Repo Rate, IRR）。它的意思是：如果你今天買進 CTD、放空期貨、用 repo 借錢來融資、一路持有到交割日，這整套操作的「理論年化報酬率」是多少。只要 IRR 高於你實際在 repo 市場借錢的成本，這筆 carry（持有收益）就是正的，價差收進口袋。（順帶一提，籃子裡 IRR 最高的那張債，通常就是 CTD。）</p>
+
+<p><strong>第三個細節：槓桿從哪來？</strong>來自 repo（附買回協議）市場和極低的保證金扣減（haircut）。基差交易者買進國債後，立刻把這張債拿去 repo 市場質押借現金，借到的現金再去買更多債、再質押……如此反覆。因為美國國債被視為最安全的抵押品，repo 的 haircut（你必須自付的保證金比例）和期貨保證金都極低，這讓整筆交易可以被放大到驚人的槓桿。聯準會 2025 年資料指出，最大的那些基金槓桿超過 18:1，部分結構性槓桿甚至更高。所以你賺的不是 0.5%，而是 0.5% 乘上幾十倍。</p>
+
+<blockquote><p>Fed 2024 年金融穩定報告指出，2023Q3 按 GAV 排名前 15 的 hedge funds 平均表內槓桿約 18:1；後續報告則顯示 hedge fund leverage 仍在高位，但新增 repo leverage 不只來自 cash-futures basis，也來自 swap spread 等 relative value trades，所以準確點說的話，這個高槓桿的形成有多個原因。</p></blockquote>
+
+<h2>引擎的兩根軸，隨時可能斷裂</h2>
+
+<p>上面那些是引擎平順運轉時的樣子。問題是，引擎有兩根隨時可能斷裂的軸：</p>
+
+<ul>
+<li><strong>第一根軸：repo 展期風險。</strong>repo 借款多半是隔夜或短天期，但你的部位要持有到期貨交割（可能好幾個月）。也就是說，你得不斷把短期借款滾動展期。一旦 repo 利率突然飆高，你的融資成本可能瞬間吃掉、甚至超過原本鎖定的價差，carry 就會由正轉負。</li>
+<li><strong>第二根軸：保證金螺旋（margin spiral）。</strong>當市場波動加大，期貨交易所會調高保證金、repo 對手會調高 haircut。即使你的部位「理論上對沖、最終會收斂」，你也得立刻拿出更多現金去補保證金。拿不出來，就只能被迫變賣手上的國債。</li>
+</ul>
+
+<p>而最可怕的是：這兩根軸會互相帶動，形成自我強化的死亡螺旋。你被迫賣國債 → 國債價格下跌、基差不收斂反而擴大 → 你的部位帳面更難看、需要補更多保證金 → 你被迫賣更多……所有做同一筆交易的基金同時被擠出門，市場上瞬間只有賣方。</p>
+
+<p>而這個死亡螺旋在 2020 年三月還真實上演過。疫情爆發前，對沖基金的國債期貨淨空單約 9,000 億美元，背後靠約 1.4 兆美元的 repo 借款撐著。疫情一來，全球瘋搶現金（dash for cash），波動率暴衝，部分天期的期貨保證金翻倍以上。死亡螺旋啟動：光是 3 月 3 日到 17 日，對沖基金就砍掉約 620 億美元的期貨空單，大型基差交易者在二月底到三月底之間拋售了 910 至 1,050 億美元的現貨國債。本該是全世界最安全的避險天堂，一度近乎失靈。最後是聯準會直接下場大買國債才止血，並從此設立了常備 repo 工具（SRF），就是為了在下次螺旋啟動時當「最後貸款人」。</p>
+
+<p>而這個引擎，現在規模變得更大。截至 2025 年，光是開曼群島註冊的對沖基金就持有約 1.85 兆美元美債（比 2022 年暴增一兆），對沖基金 repo 借款 2024 年第四季衝到 2.5 兆美元（兩年成長 104%），持有約 10.3% 的現貨美債、超過疫情前高點。2025 年 11 月，聯準會理事 Lisa Cook 公開示警：基差交易「在正常時期提升市場效率，但在壓力時期，過度擁擠的部位可能同時平倉、放大不穩定」。國際清算銀行（BIS）也警告，高度集中的槓桿正在增加國債市場的脆弱性。引擎還在轉，只是油門踩得比 2020 年更深。</p>
+
+<h2>三、同一台引擎，搬進幣圈</h2>
+
+<p>把上面那套數學原封不動搬到加密市場，就成了散戶也能參與的遊戲，而且玩法更直接。</p>
+
+<p><strong>經典版：現貨—期貨基差。</strong>買比特幣現貨、放空季度期貨，等到期收斂賺價差。值得注意的是，2024 年一月美國通過比特幣現貨 ETF 後，大量傳統機構得以方便地持有現貨來做這種「現貨持有套利（cash-and-carry）」，反而把基差壓縮、空間收窄，這完美印證了基差交易的鐵律：賺的人越多，gap 越小。</p>
+
+<p><strong>散戶版：資金費率套利（funding rate arbitrage）。</strong>這是加密獨有的精華。永續合約（perpetual）沒有到期日，所以它靠一個機制把合約價格連結回現貨，也就是用資金費率。它的組成是「固定利率 + 溢價指數（永續相對現貨的溢價或折價）」，每 8 小時結算一次。當市場狂熱、永續價格高於現貨（正費率／contango），做多的人要付錢給做空的人；反之市場恐慌、永續低於現貨（負費率／backwardation），換做空付給做多。</p>
+
+<p>於是聰明錢這樣做：買現貨、放空等量永續，價格風險抵銷，然後每 8 小時穩健收取正費率。費率怎麼換算成年化？把 8 小時費率乘上一年的結算次數（約 1,095 次）即可，所以一個看似不起眼的 +0.01%，年化就超過 10%。根據 2025 年市場資料，這類 delta 中性策略年化大多落在 8%–20%，牛市費率飆高時甚至破 100%；2024 年 BTC 平均資金費率約 11%、ETH 約 12.6%。</p>
+
+<h3>你手上那枚 15% 的「穩定幣」</h3>
+
+<p>而這套機制最極致的應用，就是你可能正握在手裡的「穩定幣」Ethena USDe。</p>
+
+<p>USDe 號稱「合成美元」，本質就是一場機構級基差交易：持有質押的 ETH（賺質押收益）+ 放空等量 ETH 永續（收資金費率），兩腿對沖讓幣值穩在 1 美元附近，收益則發給質押版 sUSDe 的持有者（推出至今多數時間年化 5%–15%，高峰逾 30%）。看懂了嗎？那個讓人心動的「15% 穩定幣」，背後沒有魔法，只是有人替你跑了一條 Basis Trade。</p>
+
+<p>但魔鬼一樣在細節，而 Ethena 的細節恰好對照了第二章的兩根軸：</p>
+
+<ul>
+<li><strong>交易對手／託管風險（對應 repo 軸）：</strong>幣圈交易所會倒（FTX 殷鑑不遠）。Ethena 的做法是把抵押資產交給鏈下結算（Off-Exchange Settlement）的託管方，只把資產「委託」給交易所當保證金、而非真的轉進交易所，藉此降低交易所倒閉的曝險。</li>
+<li><strong>負費率風險（對應保證金／carry 軸）：</strong>熊市市場轉為淨看空，資金費率會轉負，這時 Ethena 的空單不但收不到錢，還要倒貼。它靠一個儲備基金（Reserve Fund）來吸收（2024 年 6 月約 3,600 萬美元、2026 年 3 月約 6,100 萬美元，約佔供給 1.0%–1.2%），並在費率低迷時動態把抵押品轉成穩定幣、改賺美國國債利率。歷史數據站在它這邊：資金費率有均值回歸特性，最長連續負費率僅 13 天，連續正費率卻長達 176 天，連 2022 年熊市 BTC/ETH 平均費率都還有 7.8%–9%。</li>
+</ul>
+
+<p>但請記住那句話：歷史數據站在它這邊，不代表它沒有尾部風險。一旦出現「多週持續負費率 + 儲備基金不足」的極端組合，也就是它自己文件裡寫的頭號尾部風險，這台印鈔機會空轉甚至失血。你拿的並不是「無風險利息」，而是別人替你扛下這個尾部風險的補償金。</p>
+
+<h2>四、Basis Trade 對台灣和香港人，到底意味著什麼？</h2>
+
+<p>講了這麼多華爾街和幣圈，你可能想：這跟我有什麼關係？關係可大了，這可分成「看不見的」和「看得見的」兩層來講，而且都嚴嚴實實打在台港讀者身上。</p>
+
+<p><strong>第一層，看不見的：它是你所有資產的定價之錨。</strong>無論你在台北買 0050、定期定額美債 ETF，或在香港持有美股、美元保單，這些資產的估值底層，全都建立在「美國國債殖利率」這個全球無風險利率上。一旦美債基差交易像 2020 年那樣集體爆倉，殖利率劇烈跳動，會像推倒骨牌一樣衝擊全球股、債、匯，你的退休金、房貸利率、每一檔基金的淨值都會跟著不穩。我們不是這場遊戲的玩家，卻全是同一條船上的乘客。看懂 Basis Trade，等於看懂了全球金融體系最脆弱的那根樑柱會怎麼斷。</p>
+
+<p><strong>第二層，看得見的：它就藏在你我身邊的選項裡。</strong>台灣和香港散戶對加密貨幣的參與度全球名列前茅。香港正積極推動成為虛擬資產中心、開放比特幣現貨 ETF；台灣的交易所、永續合約、各種「U 本位活存」「穩定幣理財」更已滲透日常。這意味著，本文拆解的加密基差，對台港讀者不是遙遠的學術名詞，而是你可能已經、或即將親身參與，卻未必看懂的東西。</p>
+
+<h2>下次有人跟你說「零風險」時，問這三個問題</h2>
+
+<p>當一個平台對你喊出「年化 15%、穩賺、零風險」時，你現在有能力反問三個一針見血的問題：</p>
+
+<ul>
+<li><strong>這收益從哪來？</strong>如果答案是「資金費率」「現貨期貨價差」，那它本質就是 Basis Trade，收益隨市場榮枯浮動，絕非固定。</li>
+<li><strong>誰在扛風險、扛的是哪種風險？</strong>是交易對手／託管風險（交易所會不會倒）？還是負費率／carry 風險（熊市要倒貼）？高息永遠是這些風險的補償，沒有例外。</li>
+<li><strong>最壞情況長怎樣？</strong>美債版的最壞情況是 repo spike + 保證金螺旋；加密貨幣版的最壞情況是多週負費率 + 儲備耗盡。當這些情境發生，你的穩定幣可能不再穩定。</li>
+</ul>
+
+<p>這正是 Basis Trade 給我們最深的一課：金融世界裡所有看起來免費的午餐，其實都有人在廚房裡冒著失火的風險替你煮的。華爾街用 18 倍槓桿去賺那道縫隙，最後得靠聯準會兜底；幣圈用合成美元包裝那道 gap，賣給追逐高息的你我。招式一模一樣，連會斷的那兩根軸都一樣，只是換了舞台、換了包裝。</p>
+
+<p>下次再有人跟你說「這個穩到不行、躺著就有 15%」，希望你腦中浮現的，是那道一兆美元的 gap，以及它在 2020 年三月差點吞掉整個市場的樣子。真正的金融素養，是能不能在複雜的操作背後，看懂底層運作的邏輯，以及你手上的報酬，究竟是誰的風險。</p>]]></content:encoded>
+</item>
+</channel>
+</rss>

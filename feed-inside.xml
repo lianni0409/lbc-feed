@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>倫敦黑貓 London Black Cat</title>
+<link>https://londonblackcat.substack.com</link>
+<description>一位台灣人在香港與倫敦金融圈的觀察筆記</description>
+<language>zh-TW</language>
+<item>
+<title>投行是米其林餐廳：一顆水餃八塊錢的秘密</title>
+<link>https://londonblackcat.substack.com/p/post-002</link>
+<guid isPermaLink="false">cat-themove-002</guid>
+<pubDate>Sun, 12 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>理論價格只是食材成本，FVA、CVA、KVA、MVA 這些教科書不寫的加價，才是客戶帳單的真相</description>
+<content:encoded><![CDATA[<p>很多人學衍生品計價，學的是課本上的 Black-Scholes，但真正坐進投行才發現，理論價格只是食材成本——你去餐廳吃炒飯，總不可能只收米跟油的錢吧？</p>
+
+<p>那這家餐廳收的費用裡，到底還包含什麼？今天不聊複雜的公式，純粹聊聊教科書上不會看到的隱藏加價，而這些加價加起來，有時候比食材本身還貴。</p>
+
+<h2>兩層價格：菜單上的價，跟你實際付的價</h2>
+
+<p>想像一下，投行是一家米其林餐廳，有菜單上的標準料理（Listed Product），也有客製無菜單料理（OTC products）。那這家餐廳是怎麼得出一道菜要賣多少錢呢？這裡有兩層價格。</p>
+
+<p><strong>第一層是理論價格（Market Price）。</strong>這是 quant / trading desk 在算的，用利率曲線、波動率、discount factor 算出一筆 swap 或 option 的 fair value，這是純數學，也是許多財務工程與金融數學大神專精的領域。</p>
+
+<p><strong>第二層是客戶實際被收的價格。</strong>顧客上門吃炒飯，總不可能只收米的錢吧？客戶最終付的價格，其實是理論價格加上一堆加價。</p>
+
+<h2>這家餐廳的營運成本：代墊擔保品，還被政府規定要買保險</h2>
+
+<p>這裡就要談到一個觀念：投行做一筆衍生品交易的成本有什麼呢？</p>
+
+<p>首先，你要幫客戶代墊擔保品（margin）。監管要求 Listed products 與標準化的 OTC 衍生品必須透過 CCP（Central Counterparty）進行集中清算，由 CCP 介入成為買賣雙方的交易對手，並向雙方收取保證金（margin）來管理信用風險。而非標準化的 OTC 產品雖然沒有強制，但因為 CCP clearing 能顯著降低 RWA 和資本成本，多數銀行仍傾向選擇透過 CCP 清算。</p>
+
+<p>標準料理（Listed Product）需要的 margin 金額通常比較小。客製無菜單料理（OTC products）需要的 margin 金額則大很多、資金佔用時間長，每天還會根據 underlying 價格的波動，可能會補更多 margin 進去（VM），所以 funding cost 高，但賺的 fee 也相對多——這就是為什麼 capital 和 liquidity optimisation 在這邊特別重要。</p>
+
+<p>而這家餐廳，政府還規定你要買保險。Basel III 規定銀行必須根據 CCP exposure 計算 RWA（風險加權資產），然後按照 RWA 的一定比例保留資本。這筆被鎖住的資本是有成本的，因為股東的錢被綁在這裡不能拿去做別的事，股東要求回報，這就是 capital cost。</p>
+
+<h2>帳單上的哩哩摳摳：FVA、CVA、KVA、MVA</h2>
+
+<p>有了上面的觀念，就可以大致把餐廳營運的成本分成以下幾類：</p>
+
+<ul>
+<li><strong>FVA（Funding Valuation Adjustment）</strong>：人客先吃炒飯後付錢，老闆幫你先墊 margin 給 CCP 是有利息成本的，所以你要付我這個賒帳的利息。</li>
+<li><strong>CVA（Credit Valuation Adjustment）</strong>：人客可能吃霸王餐，沒付錢就跑路了。因為你有可能違約，我要收一筆信用風險的費用。這在 cleared 的世界裡比較小，因為有 CCP 站在中間，但沒有透過 CCP，bilateral 的風險就很大。</li>
+<li><strong>KVA（Capital Valuation Adjustment）</strong>：你佔了這桌內用，我就不能招待其他客人了，影響我的翻桌率。這筆交易佔了我的 RWA 和資本，資本是有成本的，所以你要付我。</li>
+<li><strong>MVA（Margin Valuation Adjustment）</strong>：你今天打電話來預約包廂，包廂需要押金，你拜託廚師好友代墊包廂押金，這筆錢廚師今天下班就不能拿去買菜了。在 CCP 放 initial margin（IM），這筆 IM 被鎖住不能動用，有 opportunity cost，所以你也要付我。</li>
+</ul>
+
+<p>另外還有 CCP Cost、Concentration margin、Operational Cost 等哩哩摳摳營運費。因此客戶最終的帳單 = 食材成本 + 所有這些加價。</p>
+
+<h2>這條鏈上，每個人只負責一小段</h2>
+
+<p>在這條鏈上，每個人負責的都是其中一小段。trader 不管 IM/VM 是怎麼 pledge，做 clearing 的人天天看 margin call，但不一定知道那筆 margin 最後怎麼變成 FVA 加到報價裡；做 capital 的人天天算 RWA，但不一定清楚 KVA 是怎麼被 sales 包進客戶帳單的。這條鏈上每個人都在處理成本的某一段，但客戶買單的時候，是所有人的成本一次結清。</p>
+
+<p>希望我這個大餐館裡剁蔥花的，有讓你更加了解一顆八塊錢的餃子是怎麼來的。</p>]]></content:encoded>
+</item>
+<item>
+<title>石油大亨借錢不看財報，看油田還剩多少油</title>
+<link>https://londonblackcat.substack.com/p/post-003</link>
+<guid isPermaLink="false">cat-themove-003</guid>
+<pubDate>Wed, 15 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>拆解能源金融裡最精密也最殘酷的產品 RBL：Borrowing Base 怎麼算、半年一次的生死判決，以及投行的一魚多吃</description>
+<content:encoded><![CDATA[<p>石油大亨借錢從不看財報，而是看油田還剩多少油。這個 99% 的人沒聽過的金融產品叫 RBL（Reserve Based Lending），簡單來說：你腳底下有一片油田，銀行會派地質工程師去算這塊地還能挖出多少桶油，然後用這個數字決定借你多少錢。</p>
+
+<p>最狠的是，每半年重算一次。油價從 $100 跌到 $30？你的額度直接砍一半，90 天內補錢，補不出來就違約。2014-2016 年油價崩盤，超過 100 家美國石油公司因為這個機制倒閉，累計債務超過 $740 億美元。</p>
+
+<p>但這也是投行最愛的能源融資產品，因為它同時賣你貸款、賣你避險、再幫你做 M&amp;A，一條龍服務，手續費吃飽飽。下面把完整機制拆解一遍。</p>
+
+<h2>一、什麼是 RBL？一句話解釋</h2>
+
+<p>RBL（Reserve Based Lending）= 用地底下的石油天然氣儲量做抵押，向銀行借錢。</p>
+
+<p>跟一般企業貸款最大的差別：傳統貸款看你的 EBITDA、資產負債表、信用評等；RBL 不看這些，它看的是「你腳下的油田值多少錢」。</p>
+
+<p>你可以把它想成房貸的石油版。房貸用房子估價決定能借多少，而 RBL 用地底儲量的現金流折現值來決定額度，只不過這個「房子」會隨著油價漲跌、產量變化，每半年重新鑑價一次。</p>
+
+<h2>二、銀行怎麼決定借你多少？Borrowing Base 拆解</h2>
+
+<p>這是整個 RBL 最核心的概念：Borrowing Base（可借額度）。計算流程大概是這樣。</p>
+
+<h3>Step 1：儲量報告</h3>
+
+<p>石油公司先請獨立的地質工程師（像 DeGolyer &amp; MacNaughton 這種機構）出一份 Reserve Report，告訴銀行：地底下有多少油、預計能採多少年、產量曲線長什麼樣。</p>
+
+<h3>Step 2：分類打折</h3>
+
+<p>儲量分三種，銀行對每一種的態度天差地遠：</p>
+
+<ul>
+<li><strong>PDP（Proved Developed Producing）</strong>：正在採的油井，現金流看得見摸得著。銀行最愛，願意貸到估值的 55-70%。</li>
+<li><strong>PDNP（Proved Developed Non-Producing）</strong>：有井但暫時沒開採，需要一點資本支出才能恢復。銀行打折更多，大概貸 40-60%。</li>
+<li><strong>PUD（Proved Undeveloped）</strong>：知道有油但還沒鑽井，風險最高。銀行只願意貸 15-35%，很多美國銀行甚至完全不算這塊。</li>
+</ul>
+
+<h3>Step 3：套用銀行自己的油價假設（Price Deck）</h3>
+
+<p>這邊有一個很有意思的細節——銀行不會用市場上的油價或期貨價格來算，而是用自己內部的 Price Deck，通常比市場價保守 10-20%，這是銀行給自己的安全墊。</p>
+
+<h3>Step 4：現金流折現</h3>
+
+<p>用保守油價 × 預計產量 - 營運成本、稅金、資本支出 = 未來每一期的淨現金流，然後用大約 9-10% 的折現率折回現在。</p>
+
+<h3>Step 5：Cover Ratios 把關</h3>
+
+<p>算完 NPV 還不夠，銀行會用幾個覆蓋比率來決定最終額度：</p>
+
+<ul>
+<li><strong>LLCR（Loan Life Coverage Ratio）</strong>：整個貸款期間的現金流 NPV ÷ 債務。通常要求 1.3-2.5 倍。如果 NPV 是 $15 億，LLCR 要求 1.5 倍，你最多借 $10 億。</li>
+<li><strong>FLCR（Field Life Coverage Ratio）</strong>：看的是整個油田生命週期（比貸款期更長），是更大的安全墊。</li>
+<li><strong>DSCR（Debt Service Coverage Ratio）</strong>：看單一期間的現金流夠不夠付利息和本金，通常要 ≥ 1.2 倍。</li>
+</ul>
+
+<p>Borrowing Base = 取 LLCR 和 FLCR 算出來的較低值。</p>
+
+<h2>三、每半年一次的生死判決 Redetermination</h2>
+
+<p>這是 RBL 最讓借款人緊張的機制。每 6 個月（通常在 4 月和 10 月），銀行團會重新跑一次上面的計算流程，如果油價下跌、或產量不如預期，Borrowing Base 就會縮水。</p>
+
+<p>如果你已經借的錢 &gt; 新的 Borrowing Base，恭喜，你遇到了 Borrowing Base Deficiency（額度不足）。通常你有 60-90 天的時間補齊差額，要不是還錢，就是追加抵押品。</p>
+
+<p>這就是為什麼 2014-2016 油價崩盤時，一百多家石油公司骨牌式倒下，WTI 從 $100 跌到 $30，Borrowing Base 被砍掉一半以上，公司根本湊不出錢來補缺口。幾個真實案例：</p>
+
+<ul>
+<li><strong>Linn Energy</strong>：額度從 $45 億被砍到 $20 億，2016 年破產。</li>
+<li><strong>Chesapeake Energy</strong>：傳奇頁岩公司，2020 年疫情時額度從 $30 億砍到 $20 億，同年申請破產保護。</li>
+<li><strong>Tullow Oil</strong>：英國上市公司，2019-2020 年因為非洲油田的儲量下修 + 油價暴跌，被迫全面重組 $18 億的 RBL 額度。</li>
+</ul>
+
+<h2>四、投行怎麼靠 RBL 賺錢？一魚多吃的商業模式</h2>
+
+<p>對 Goldman Sachs、JPMorgan 這類投行來說，RBL 不只是一筆貸款，它是打開客戶錢包的萬能鑰匙。</p>
+
+<ul>
+<li><strong>收入來源一：安排費（Arrangement Fee）</strong>。主辦行通常收取 100-200 個基點的前置費。一筆 $10 億的 RBL，光 upfront fee 就是 $1,000-2,000 萬。</li>
+<li><strong>收入來源二：利息收入</strong>。放款利率通常是 SOFR + 150-350 基點，利差穩定。</li>
+<li><strong>收入來源三：交叉銷售才是大頭</strong>。RBL facility 通常會強制借款人對沖 80-100% 的未來產量。猜猜看是跟誰買避險？當然是跟放款的投行買，所以投行同時賺融資費 + 衍生品交易價差。更別提後續的 M&amp;A 諮詢、IPO、債券發行，都是從一筆 RBL 關係延伸出來的。</li>
+<li><strong>收入來源四：銀團聯貸的中間價差</strong>。主辦行把 facility 分銷給其他銀行，中間再賺 15-40 個基點的 syndication fee。</li>
+</ul>
+
+<h2>五、油價暴跌時，投行怎麼保護自己？</h2>
+
+<p>投行不是傻子，他們有一整套風控武器。</p>
+
+<p><strong>結構層面：</strong></p>
+
+<ul>
+<li>用保守 Price Deck（比市場低 10-20%）</li>
+<li>只貸 PDP 估值的 55-70%（天然安全墊）</li>
+<li>每半年重新評估，隨時縮減額度</li>
+<li>要求借款人做 commodity hedging</li>
+</ul>
+
+<p><strong>組合層面：</strong></p>
+
+<ul>
+<li>單一借款人的曝險限制在能源組合的 2-5%</li>
+<li>通過 syndication 把風險分散給其他銀行</li>
+<li>定期做壓力測試（例如：油價 $30-40 維持兩年的情境）</li>
+</ul>
+
+<p><strong>市場對沖：</strong></p>
+
+<ul>
+<li>買信用違約交換（CDS）來保護特定借款人的違約風險</li>
+<li>用原油期貨或選擇權來對沖間接的商品價格曝險</li>
+<li>透過 Total Return Swap 把整筆 RBL 的經濟風險轉移出去</li>
+</ul>
+
+<h2>六、US RBL vs 國際 RBL 那些你不知道的差異</h2>
+
+<p>美國和歐洲／新興市場的 RBL 其實長得很不一樣。美國 RBL 更像循環信貸，幾乎只看 PDP，結構簡單但頻繁調整。</p>
+
+<p>國際 RBL（特別是北海油田）更像 project finance，會把 PDP + PDNP + 部分 PUD 都算進去，有結構化的還款計畫，還會用到 LLCR、FLCR 等覆蓋比率來控制風險。國際版通常涉及多家銀行分工，有負責審查儲量的技術銀行、有負責建財務模型的模型銀行，運作比美國版複雜得多。</p>
+
+<h2>七、一句話總結</h2>
+
+<p>RBL 的本質就是：把一個正在消耗的地下資產，變成一個會呼吸的信用額度，它跟著油價漲縮、跟著產量調整、跟著市場重新定價。</p>
+
+<p>它是能源金融裡最精密的產品之一，也是最殘酷的，因為當市場轉向的時候，它會比任何其他融資工具更快地把你推向懸崖邊緣。</p>
+
+<p>而對投行來說，它是完美的商業模式：融資、避險、交易、顧問全部打包，一條龍收費。</p>]]></content:encoded>
+</item>
+<item>
+<title>一檔 2000 萬美元的 Credit ETF，是怎麼包出來的</title>
+<link>https://londonblackcat.substack.com/p/005-2000-credit-etf</link>
+<guid isPermaLink="false">cat-themove-005</guid>
+<pubDate>Sat, 18 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從 1,500 檔指數壓縮到 50 檔投組，拆解 credit ETF PM 分層抽樣、sizing、rounding 到 alpha 的完整實務流程</description>
+<content:encoded><![CDATA[<p>台灣 ETF 正夯，但你知道手裡的 ETF 是怎麼包出來的嗎？先講利益聲明：我不是做 ETF 出身的，只是最近想內部轉組做了不少功課，整理出來的這份筆記自己覺得很實用，從基礎架構一路拆到 credit ETF 選債券的邏輯，力求闔家歡樂、雅俗共賞。</p>
+
+<p>想像一個規模 $20M 美元的 credit ETF，它的 mandate 是追蹤一個由歐元和美元公司債組成的指數，這個指數裡大約有 1,500 檔 name，每一檔都有自己的權重、幣別、產業、順位、存續期和信用利差。PM 的工作是用這 $20M 組一個投組，最多挑 50 到 200 檔，讓這個小投組在行為上盡可能貼近那個 1,500 檔的大指數。</p>
+
+<p>這個場景放在真實市場裡並不罕見，歐洲或亞洲的 asset manager 經常推新的主題型 credit ETF，初期規模常常就落在幾千萬美元的量級，PM 面對的就是這種「用有限資本模擬一個大指數」的任務。題目看似單純，每一個字都暗藏限制：1,500 是 universe，50 到 200 是操作上限，$20M 是規模，指數是目標，「貼近」是模糊的績效指標，真正的挑戰是怎麼在這些互相拉扯的條件裡找到合理的解。</p>
+
+<p>這也是為什麼做 ETF 的 PM 常說自己在做的不是傳統 stock picking，而是最佳化工程，判斷題和計算題各佔一半。</p>
+
+<h2>先把幾個名詞固定下來</h2>
+
+<p>在往下走之前，先把會用到的幾個關鍵字建立起來，這些字會在整篇文章反覆出現，熟了之後整條邏輯鏈會變得很好懂。</p>
+
+<ul>
+<li><strong>債券 (bond)</strong> 就是一張借據，公司或政府跟你借錢、定期付利息 (coupon)、到期還本金 (par value)，例如 ABIBB 2 01/23/35 代表百威英博 2% 票息、2035 年 1 月 23 日到期的那一檔債券，每一檔債券都有一個 12 碼的 ISIN 當作身分證。</li>
+<li><strong>ETF (Exchange-Traded Fund)</strong> 是一個在交易所掛牌的一籃子基金，買一股 ETF 等於間接持有裡面一籃子資產，比自己去二級市場一檔一檔掃貨方便很多。</li>
+<li><strong>Benchmark</strong> 是 ETF 要模仿的那張大名單，PM 的工作是讓手上的投組長得跟 benchmark 很接近。</li>
+<li><strong>Tracking error (TE)</strong> 是衡量 ETF 報酬跟指數報酬差距的指標，數字越小代表追蹤越準，這是 ETF PM 最主要的績效 KPI，一個好的 IG credit ETF 年化 TE 通常會壓在 20 到 50 bp 以內。</li>
+<li><strong>NAV (Net Asset Value)</strong> 是基金淨資產價值，所有權重的分母都是它。</li>
+<li><strong>OAD (Option-Adjusted Duration)</strong> 是有效存續期，直覺上就是利率敏感度，OAD 等於 5 代表利率上升 1% 這檔債券價格大約跌 5%。</li>
+<li><strong>OAS (Option-Adjusted Spread)</strong> 是期權調整利差，單位是基點 (bp)，1 bp 等於 0.01%，OAS 等於 80 bp 表示這檔債比同天期無風險政府債多給你 0.80% 的補償，這 0.80% 就是承擔信用風險的報酬。</li>
+<li><strong>Seniority</strong> 是債券在發行人資本結構裡的順位，從安全到危險依序是 Secured (有擔保)、Sr Preferred、Sr Unsecured、Sr Non-Preferred、Subordinated，順位越前越安全，殖利率通常也越低。</li>
+<li><strong>Min Trade</strong> 是最低交易面額，歐元公司債多半是 100,000 歐元起跳，美元公司債多半是 2,000 美元起跳，Min Incr 是在這個基礎上可以加碼的最小單位。</li>
+</ul>
+
+<h2>第一個決策：為什麼 PM 不會 full replicate</h2>
+
+<p>看到 1,500 檔 benchmark，很多圈外人的第一反應是既然都列出來了，PM 按 benchmark 權重全部照抄不就是最完美的複製。這個想法在純數學上是對的，在真實市場上是不可能執行的。</p>
+
+<p>原因一是最低交易面額的限制。歐元公司債的 Min Trade 通常是 100,000 歐元，benchmark 裡如果有一檔權重只有 0.02%，換算成 $20M 的規模只有 $4,000，連一張都買不到，你想複製這檔等於把錢全 allocate 過去還不夠，這種情況在 1,500 檔裡會反覆出現幾百次。</p>
+
+<p>原因二是交易成本。Credit market 是 OTC 市場，每一筆交易都要付 bid-ask spread，買 1,416 檔比買 50 到 200 檔的成本要高上幾個量級，尤其是那些長期不交易的小額標的，bid-ask 可能寬到 50 bp 以上，這些成本會直接吃掉 ETF 的 net return。</p>
+
+<p>原因三是後續管理負擔。每一次贖回、申購、coupon 再投資、到期再配置，都要處理 1,500 個部位，對 operations 和 PM 都是災難，ETF 的運營效率會被稀釋掉。</p>
+
+<p>所以業界實務上 small credit ETF 幾乎都用 sampling (抽樣複製) 而不是 full replication (逐檔複製)。接下來的每一個決策都繞著同一個問題打轉：怎麼用最少的檔數，保留指數最重要的風險特徵。</p>
+
+<h2>分層抽樣的哲學</h2>
+
+<p>Sampling 的直覺錯誤是以為就是隨便挑，真正的 sampling 邏輯叫 stratified sampling 分層抽樣，意思是先把 universe 分層，再從每一層裡面按比例挑。</p>
+
+<p>用一個比較生活的比喻，假設你要做一個全台灣高中生平均身高的調查，但只能問 50 個人，最壞的做法是隨便抓 50 個，剛好抓到的全是籃球校隊，結果嚴重偏高。好的做法是先把高中生分層，男生女生乘以北中南東切成 8 個格子，每個格子按人口比例配問卷數，每個格子裡面再挑代表性樣本。</p>
+
+<p>把這個邏輯搬回 credit ETF，PM 最常用的分層方式是幣別乘以產業，2 種幣別乘以 10 個產業等於 20 個 bucket，每個 bucket 在 benchmark 裡佔多少權重，就分配多少檔。舉例：EUR Banks 在 benchmark 佔 18.5%，50 乘以 18.5% 等於 9.25，所以這個 bucket 分 9 檔；USD Banks 佔 12.7%，分 6 檔；EUR Tech 佔 1.8%，分 1 檔。依此類推 20 個 bucket 加起來剛好 50 檔。</p>
+
+<p>這個做法的好處是幣別加總跟產業加總會自動對齊 benchmark，這是 first-order 的風險對齊，幾何上就成立，不需要額外算。剩下的存續期、利差、順位要在更細的層級去處理。</p>
+
+<p>實務上 PM 會按 fund size 和 mandate 把分層維度再擴充，例如 $500M 以上的 ETF 可能會用幣別乘以產業乘以 rating 的三維分層，小規模 ETF 則只顧二維，這是一個在粒度和檔數之間的 trade-off。</p>
+
+<h3>在一個 bucket 裡怎麼挑那 N 檔</h3>
+
+<p>假設 EUR Banks 要挑 9 檔，benchmark 裡有 115 檔 EUR Bank 債，怎麼從 115 挑 9？如果隨機挑可能會全部集中在某一家銀行、全部集中在短天期、或全部集中在次順位，這樣雖然湊到 9 檔，但風險結構完全沒有分散。</p>
+
+<p>業界通用做法是先把這 115 檔照 OAD 排序，從短到長切成 9 段，每一段代表短中長某一個存續期區間，然後在每一段裡面挑 BMK_Weight 最大的那一檔。BMK_Weight 大代表發行規模大、流動性好、也是 benchmark 裡最具代表性的 issuer。</p>
+
+<p>這個做法確保兩件事，第一是存續期同時涵蓋短中長，加權平均會貼近 bucket 的平均存續期，第二是挑到的都是流動性最好的 name，執行上比較不會出問題。其他 bucket 的邏輯一樣照抄，bucket 小的 (只分到 1 檔) 就直接挑該 bucket 裡 BMK_Weight 最大的那一檔。</p>
+
+<p>有些 PM 會在這一步再加一層過濾，例如排除已經被放在 watch list for downgrade 的 name、排除下個月要到期的 name、或優先選 on-the-run 的流動性更好的代表券，這些細節會隨 house style 而異，但骨架都是同一套。</p>
+
+<h3>Seniority：沒進分層但要另外顧</h3>
+
+<p>你可能會問，那 seniority 怎麼辦，為什麼不把 seniority 也加進分層維度？答案很現實，2 (幣別) 乘以 10 (產業) 乘以 5 (順位) 等於 100 個格子，50 檔分到 100 個格子裡面有一半會是空的，分層失去意義。</p>
+
+<p>PM 通常把 seniority 當作 second-order constraint 來處理，方法是在某些 bucket 裡面刻意混搭順位。最明顯的是 EUR Banks 的 9 檔，會故意混 3 檔 Sr Non-Preferred、2 檔 Sr Preferred、4 檔 Unsecured，因為銀行業的資本結構就是這樣層層疊疊，這樣處理完 seniority 的加總才會比較像 benchmark。Electric 公用事業 bucket 會刻意挑兩檔 Secured，因為公用事業常見有擔保債；Insurance 的 2 檔裡會配一檔次順位一檔 unsecured，反映保險公司發次順位的比重高於其他產業。</p>
+
+<p>這樣處理完 seniority 加總跟 benchmark 比對，Unsecured 76.1% (benchmark 77.0%)、Secured 4.3% (4.4%)、Sr Preferred 3.6% (4.5%)、Sr Non-Preferred 5.5% (6.3%) 都很貼，只有 Subordinated 10.1% 比 benchmark 的 7.9% 多了 2.2%，這是為了顧存續期多樣性的副作用，也是這個組合最明顯的一個 tilt，後面會再提到它帶來的風險。</p>
+
+<h2>Sizing 與 rounding：讓這張單真的能成交</h2>
+
+<p>挑完債券名單，下一個問題是每一檔買多少。業界常用的 sizing 邏輯是 bucket 內等權，假設 EUR Banks 的 bucket 權重是 18.5%，分給 9 檔，每一檔的目標權重就是 18.5% / 9 ≈ 2.06%，對應到 $20M 的 NAV 就是 $411,600 的市值。</p>
+
+<p>從目標市值回推面額的公式是：</p>
+
+<blockquote><p>target_par = target_mv_usd × 100 / PriceDusd</p></blockquote>
+
+<p>這裡 PriceDusd 是含應計利息的美元髒價，代表每 100 面額要花多少美元，所以目標市值除以 (PriceDusd / 100) 就是應該買的面額。</p>
+
+<p>為什麼要用 dirty price 不是 clean price？因為真的下單的時候付的是 dirty price，clean price 只是報價慣例，不包含應計利息，拿 clean price 算會少買一點，跟目標市值對不上。這種細節在真實系統裡是 ops 和 PM 吵過很多次才固定下來的慣例。</p>
+
+<p>進階一點的 PM 會用 risk parity 或 duration-weighted sizing 而不是 market-value-weighted，這種做法在 high yield 或 EM credit 特別常見，因為那裡面不同 name 的波動性差距很大，等市值權重會讓組合的風險被少數高波動 name 主導。</p>
+
+<h3>Rounding 到合法面額的現實</h3>
+
+<p>算出來的 target_par 幾乎不會剛好是合規的交易面額，因為每一檔都有自己的 Min Trade 和 Min Incr。合法面額的集合長這樣：</p>
+
+<blockquote><p>{ Min Trade, Min Trade + 1×Incr, Min Trade + 2×Incr, ... }</p></blockquote>
+
+<p>例如某檔 Min Trade = 100,000、Incr = 1,000，那合規面額就是 100,000、101,000、102,000、103,000⋯⋯ 如果算出 target_par = 103,450，要把它 round 到最近的合法值，也就是 103,000 或 104,000 之一。Rounding 的公式是：</p>
+
+<blockquote><p>k = round((target_par − Min Trade) / Min Incr)<br>final_par = Min Trade + k × Min Incr</p></blockquote>
+
+<p>白話講就是要嘛剛好等於 Min Trade，要嘛大於 Min Trade 而且差值能整除 Min Incr。所有 50 檔都要通過這個檢查，才代表這個組合在實務上可以成交。</p>
+
+<p>Rounding 帶來的副作用是每一檔的實際權重會跟目標權重差一點點，累加起來整個 bucket 可能偏離 1 到 2 bp，這是 sampling 的不可避免成本，tracking error budget 要留空間吸收它。真實系統裡這一層通常會用 integer programming 處理，確保所有 line 都在合法 lot 上，同時總誤差最小化。</p>
+
+<p>整個流程跑完，就是一個典型的 sampled portfolio，PM 每天都會跑一次這張表，看 active exposures 有沒有因為 price move 或 coupon cash 飄離目標，超過某個 threshold 就會觸發 rebalance。</p>
+
+<h2>這個投組最大的風險是什麼</h2>
+
+<p>把 1,500 檔壓縮到 50 檔，風險當然會被放大，最主要有以下幾個。</p>
+
+<ul>
+<li><strong>單一 issuer 集中度。</strong>Benchmark 裡最大 issuer 大概佔 0.5%，sampled portfolio 裡最大 issuer 可能佔 2%，如果這家公司出事 (例如被降評或違約)，損失會是 benchmark 的 4 倍，這是典型的 idiosyncratic risk。</li>
+<li><strong>Subordinated 和長天期信用的 tilt。</strong>選 sub 是為了顧存續期多樣性，但一旦信用環境惡化，sub 跌得比 unsecured 兇，長天期信用 spread widening 的放大效果也比短天期嚴重，這兩個 tilt 會在 risk-off 階段一起放大 drawdown。</li>
+<li><strong>沒有 rating bucket 控管。</strong>如果分層只顧幣別和產業，有可能挑到的 9 檔 EUR Bank 都是 BBB+，而 benchmark 裡其實是 A- 和 BBB 混合，整體信用品質就會偏低。這種偏差在 benchmark 相對穩定時看不出來，但遇到 rating migration wave 就會一次爆開。</li>
+<li><strong>流動性落差。</strong>小額標的在 stress 的時候 bid-ask 會拉寬好幾倍，sampled portfolio 碰到大規模贖回時平均成交成本會比 benchmark 高，這件事在 2020 年 3 月的 credit ETF 巨幅 discount 事件中曾經被市場重新教育過一次。</li>
+</ul>
+
+<h3>真實市場上同類 ETF 會有幾檔</h3>
+
+<p>一個 $20M 規模的 credit ETF 在真實世界通常會放 100 到 300 檔，不會只放 50 檔，也不會放到一千多檔。</p>
+
+<p>少於 100 檔風險太集中，單一 issuer 違約對 NAV 的衝擊會大到 PM 睡不著覺；多於 300 檔開始頂到 Min Trade 的天花板，小額部位根本湊不到最低交易面額。這個 sweet spot 也受 ETF 類型影響，IG 信用 ETF 通常 200 到 300 檔，HY 因為發行量小要放鬆到 150 到 250 檔，EM 信用因為流動性差甚至會壓到 80 到 120 檔。</p>
+
+<p>用 50 檔的極端情況，通常是在早期 seed capital 階段或是刻意設計的高集中度主題 ETF (例如單一評級的 fallen angel 主題)，這時候 PM 要在說明書裡把 concentration risk 寫得很清楚，讓投資人知道這不是一個純被動 index ETF。</p>
+
+<h3>真實 PM 還會看哪些風險指標</h3>
+
+<p>除了幣別、產業、存續期、利差、順位之外，實務上 credit ETF 的 PM 會額外盯幾個維度。</p>
+
+<ul>
+<li><strong>DTS (Duration × Spread)</strong> 是信用利差風險的正確度量，可以想成 spread 動 1% 時價格會怎麼變，比單看 OAS 更準，因為長天期信用的利差變動對價格衝擊比短天期大，DTS 加總的對齊比單純 OAS 對齊更能反映真實的 P&amp;L 敏感度。</li>
+<li><strong>Key Rate Durations (KRD)</strong> 是殖利率曲線各個年期 (2Y/5Y/10Y/30Y) 的敏感度，只看整體 OAD 會漏掉曲線斜率變化的影響，例如 curve flatten 時 30Y 跌得比 5Y 兇，投組如果在 30Y 過重就會超預期虧錢。</li>
+<li><strong>Rating bucket exposure</strong> 是 AAA/AA/A/BBB 各佔多少，這跟 portfolio 的信用品質直接相關，也是 ETF 提供給投資人的基本揭露項。</li>
+<li><strong>Top-N issuer concentration</strong> 是前 10 大 issuer 佔幾 %，用來監控集中度風險，多數 mandate 會規範單一 issuer 不超過 2 到 3%。</li>
+<li><strong>Convexity</strong> 是利率大幅變動時價格變動的凸性修正，長天期債的 convexity 影響很大，被動追蹤型 ETF 如果 convexity 和 benchmark 對不上，在 rates rally 或 sell-off 時會被放大偏差。</li>
+<li><strong>Ex-ante tracking error</strong> 是事前統計上預期的偏離，用 factor covariance matrix 算出來，是正式的績效 KPI，也是投組最佳化的目標函數。</li>
+<li><strong>Liquidity score</strong> 是每一檔的實際可賣性，通常用 trade volume 和 bid-ask 綜合打分，ETF 在贖回壓力下真正能動用的流動性就靠這個。</li>
+</ul>
+
+<p>理想的投組最佳化目標不是單純對齊 OAD 和 OAS，而是在所有這些維度上同時最小化 tracking error，這會變成一個 quadratic programming 問題，業界通常用 BarraOne、Aladdin、POINT 這類系統跑。</p>
+
+<h3>如果規模變成 $500M 會怎樣</h3>
+
+<p>規模變大會讓很多東西變容易，也會讓某些東西變難。</p>
+
+<p>容易的部分是 Min Trade 不再是限制，$500M 隨便 allocate 都湊得到最低交易面額，所以檔數可以拉到 200 到 400 檔，各維度的對齊都會變精細，tracking error 能壓到 20 到 30 bp 以內。可以引入 rating 和 seniority 的 third-order 分層、增加 ESG 或 crossover 等 tilts、用 primary market 的 new issue 直接進貨而不是在二級市場掃貨。</p>
+
+<p>變難的部分是 capacity constraint 開始出現，單一 issue 的發行規模有限，買掉某一檔債券發行量的 10% 以上會在進出都推動價格，所以需要更多 primary market 的配額來分散；現金和匯率操作量級變大，cash drag 的優化變成一個獨立的 work stream；如果是 UCITS ETF 還要處理 diversification limits 和稅務包裝。</p>
+
+<p>簡單講 $20M 是在解 execution 問題，$500M 是在解 portfolio construction 問題，$5B 以上就要開始解 market impact 問題，每一個階段的 PM 日常完全不一樣。</p>
+
+<h2>Alpha 從哪裡來：追蹤指數之外還能賺什麼</h2>
+
+<p>ETF 的本質是追蹤指數，但即使是被動 ETF，PM 也有一些空間可以讓 net-of-fee return 超越 benchmark，這就是所謂的 replication alpha，大概來自幾個來源。</p>
+
+<ul>
+<li><strong>Relative value (RV)</strong> 是最常見的，同一個 issuer 發了不同天期、不同順位的債，它們在 curve 上應該有合理的相對關係，如果某一檔因為供需因素暫時變便宜，在 bucket 內選那一檔而不是它的鄰居，就可以賺到 RV 收斂的 spread。</li>
+<li><strong>New-issue premium (NIP)</strong> 是 primary market 常見的折價，新發行通常比二級市場同類型債便宜 5 到 10 bp 來吸引認購，ETF 如果能拿到 primary allocation，進貨成本就會低於 benchmark。</li>
+<li><strong>避開降評事件</strong>是信用研究的本業，某些 name 在被降評前會提早釋出訊號，如果能在 rating action 之前減碼，可以避免 forced selling 的 impact cost。</li>
+<li><strong>Sector 和 duration 的輕微 tilt</strong> 也是 alpha 來源，例如看空景氣週期時小幅減碼 cyclicals、看升息到頂時小幅加碼長天期，每一個 tilt 都要控制在 1 到 2% 以內以免被 tracking error budget 吃掉。</li>
+<li><strong>Roll-down carry</strong> 是選那種放著不動、隨著時間滾下殖利率曲線就能賺資本利得的 name，這是 bond manager 的傳統技術活。</li>
+<li><strong>ESG、crossover (BB/BBB 邊界)、fallen angel</strong> 這些主題類 tilt 也是近年的新 alpha 來源，前提是 ETF 的 mandate 允許適度偏離。</li>
+</ul>
+
+<p>這些 alpha 加起來一年大概 10 到 30 bp，聽起來不多，但相對於 IG credit 指數 4 到 5% 的 total return，已經是一個很有感的 edge，也是 active ETF 在被動 ETF 夾縫中生存的基本邏輯。</p>
+
+<p>對我這種還在門外但想接觸 ETF 的人，給自己的提醒是先把題目拆小，不要一開始就想跑最佳化，先用最笨的方法 (等權 bucket、存續期分層、手動 rounding) 把整個 pipeline 跑通，再一層一層加複雜度。聰明的解法來自對笨解法的深刻理解，這件事在面試和真實工作都適用。</p>]]></content:encoded>
+</item>
+<item>
+<title>同樣叫 trader，年薪五萬鎊到五百萬鎊的光譜</title>
+<link>https://londonblackcat.substack.com/p/006-trader</link>
+<guid isPermaLink="false">cat-themove-006</guid>
+<pubDate>Wed, 22 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從 flow trader、XVA 到 interdealer broker，拆解倫敦 trading floor 上二十種交易員的差別與薪水量級</description>
+<content:encoded><![CDATA[<p>同樣一張名片印著 trader，年薪可以從五萬鎊一路開到五百萬鎊，差的不是努力，是你前面那個字。</p>
+
+<p>在中文世界裡全部翻譯成交易員，但在倫敦的 trading floor 上，不同名字分別對應完全不同的人生。有人每天在幫銀行吃幾十億鎊的庫存風險，有人只是把 PM 的單子精準地送到市場上，有人坐在兩家銀行中間匿名撮合、連一毛部位都不能持有，薪水結構、晉升路徑、甚至他們跟市場的關係都完全不一樣。</p>
+
+<p>最諷刺的是，金融海嘯之後真正在銀行裡賭方向的 prop trader 幾乎絕種，現在名片上印著 trader 的人，大多數其實都在做中介、造市、或是單純把別人的決策變成一筆成交單，而這幾年真正在賺大錢的風險承擔者反而躲在銀行外面。Jane Street 外行人沒聽過，但 2025 年第二季光它就賺贏 GS 和 JP 的 markets 部門。</p>
+
+<p>下面這份筆記把 trader 的光譜從 sell-side 拉到 buy-side，把每一種的工作內容、賺錢方式、和薪水量級說清楚，看完你會明白為什麼擦鞋童那個笑話可以流傳快一百年還沒過時。</p>
+
+<h2>擦鞋童的那個笑話</h2>
+
+<p>1929 年美股崩盤前夕，老甘迺迪據說是聽到華爾街的擦鞋童跟他推薦股票之後，回去把部位全部清光。這個故事的真實性存疑，但它流傳近百年的原因是它說中了一件事：當 trader 這個字變得人人都能掛在嘴邊，這個身份本身就失去了它原本指涉的那個專業。</p>
+
+<p>今天在台灣和香港，只要手機裡有個券商 app 就可以自稱 day trader，Threads 上的曬單帳號也都叫自己 trader。但在銀行和對沖基金的世界裡，這個字前面加什麼形容詞，決定了你是年薪五萬鎊的 junior 還是年薪五百萬鎊的 MD，決定了你是坐在市場中心看著幾百億美元 flow 的人，還是純粹把別人的決策送到交易所去的執行者。</p>
+
+<p>下面這張光譜，從最接近賭方向的那一端，一路走到最接近純執行的那一端，中間還有一堆看起來像 trader 其實不是 trader 的職能。理解這個光譜，是金融圈 industry sense 的第一層。</p>
+
+<h2>Sell-side 銀行裡的 trader 家族</h2>
+
+<p><strong>Flow Trader</strong> 是電影裡那種典型的 trader，坐在 Goldman、JPM、Morgan Stanley 的 trading floor 上，客戶透過 Bloomberg 丟一張 RFQ 過來要報 Tesla bond 的價格，flow trader 報 90/92，客戶成交就吃 2 塊 spread，然後用 CDS 和 IRS 把部位風險對沖掉，最後透過 sales 把這批 bond 轉手給 BlackRock。銀行自己吃風險、自己 own book，但目的不是賭方向而是賺買賣價差，這是金融海嘯後銀行最主流的 trading 模式，FICC 和 equities 兩大部門底下幾乎所有產品都是這個邏輯。</p>
+
+<p><strong>Market Maker</strong> 廣義上跟 flow trader 重疊，差別在於 market maker 的義務是兩邊都要掛價，要持續提供 bid 和 ask 讓市場有流動性。銀行的 flow trader 大多同時扮演 market maker 的角色，但在股票和 ETF 這兩塊，非銀行的專業 market maker 已經吃掉絕大部分市佔，Citadel Securities、Virtu、Susquehanna、Jane Street 這些公司單靠造市一年賺的錢就超過很多中型投行。</p>
+
+<p><strong>Liquidity Trader / Liquidity Provider</strong> 是比較新的用法，它把傳統上 market maker 的角色拉得更廣，只要你的商業模式是持續提供買賣報價、不靠預測方向賺錢，就可以叫 liquidity provider。這個詞在 FX 和 crypto 市場用得特別多，因為這兩個市場沒有單一的中央交易所，liquidity 是碎片化的、多層的，tier 1 liquidity provider 指的是能跟 interbank 市場直接對接的大型銀行，下面還有 tier 2、tier 3 的 non-bank liquidity provider 餵流動性給零售 broker。這個角色的本質不是賭漲跌，而是賭自己的 inventory management 比別人好、reaction time 比別人快。</p>
+
+<p><strong>Prop Trader（狹義）</strong> 才是真正在賭方向的 trader，他們用自己公司的錢下注，賺的是市場的絕對報酬而不是 spread。但 Volcker Rule 通過之後美系銀行基本上退出這個業務，銀行內部現在幾乎沒有純 prop 的角色，真正的 prop 集中在 Jane Street、Optiver、IMC、Hudson River、XTX、DRW 這類專業公司，倫敦和香港都是他們主要的亞太基地。</p>
+
+<p><strong>Rates / FX / Credit / Commodities Trader</strong> 是同一個 flow trader 的概念在不同 asset class 的分支，但每一支的日常完全不同。Rates trader 的世界圍繞著 swap curve、central bank policy、repo rate，FX trader 是 24 小時三班制、看的是 G10 vs EM 的 cross flow，credit trader 的核心是 bond liquidity 和 CDS basis，commodities trader 則多半在跟實體交割、船運、storage cost 打交道。同樣是 VP trader，rates 跟 commodities 的技能幾乎是兩個產業。</p>
+
+<p><strong>Structured Products Trader</strong> 是處理 autocallable、TARF、accumulator、snowball 這些嵌入式選擇權產品的人，他們吃下 structurer 和 sales 賣出去的客戶部位，每天用 vanilla options 去對沖那些無法完美對沖的 exotic Greeks。2024 年中國雪球產品爆倉事件讓全世界看見這個角色在極端行情下有多難做。</p>
+
+<p><strong>Central Risk Book Trader</strong> 是比較新的角色，坐在銀行內部，把各個交易台留下來的剩餘風險打包起來，用模型和自己的判斷做集中化的對沖或持有，有點像銀行內部的小型 prop，但風險胃納受限於整行的 RWA 和資本配置。這個位置政治性很強，因為它本質上是在搶各 desk 的執行權。</p>
+
+<p><strong>XVA Trader</strong> 是外人最不理解但內行人最尊敬的角色，他們管的是整個銀行 OTC 衍生品組合的 credit valuation adjustment、funding valuation adjustment、capital valuation adjustment，是全行唯一真正看得到所有 desk、所有對手方、跨資產類別組合效應的那一群人。Archegos 爆掉的時候如果 Credit Suisse 的 XVA desk 早一點看到集中度，結局可能完全不一樣。</p>
+
+<p><strong>Delta One Trader</strong> 屬於 equity derivatives 底下的一支，跟 equity finance、synthetic prime brokerage 三位一體，他們用 total return swap、ETF、futures 這些 delta 接近 1 的工具替客戶複製指數曝險，同時透過 repo、證券借貸、dividend arbitrage 在後面多賺一層。Kerviel 當年在 SocGen 搞出 49 億歐元虧損的那張桌子就是 Delta One。</p>
+
+<h2>非銀行的 PTF 和 HFT：現在真正的大玩家</h2>
+
+<p><strong>Principal Trading Firm（PTF）</strong> 是這幾年整個 sell-side 最大的變數，Jane Street、Citadel Securities、XTX Markets、Hudson River Trading、Jump Trading、Flow Traders 這些公司都屬於這一類，它們既做 market making 也做 prop，只是權重不同：Citadel Securities 偏向純造市、Jane Street 偏向 prop、XTX 在 FX 和歐洲股票是絕對龍頭。2025 年第二季 Jane Street 一家公司賺了 101 億美元，直接超越 JPM 的 markets 部門和 Goldman 的 markets 部門，這件事在銀行圈是震撼彈等級。</p>
+
+<p><strong>High-Frequency Trader（HFT）</strong> 是 PTF 的一個子集，專注在 picosecond 到 millisecond 等級的速度競賽，核心策略是 latency arbitrage、exchange-to-exchange 的價差捕捉，這一派的代表是 Virtu、Jump、HRT、Tower Research。Michael Lewis 的 Flash Boys 講的就是這個年代，但產業早就演化，現在很多原本的 HFT 已經同時做 medium-frequency trading，持倉時間從幾分鐘到幾天都有。</p>
+
+<p><strong>Systematic / Quant Trader</strong> 這個名字在不同公司指的東西也不一樣。在 PTF 裡他們通常叫 researcher 或 algo developer，負責開發策略和模型，真正按按鈕的可能是另一批人，也可能根本沒有人在按按鈕。在對沖基金裡的 systematic trader 則是 Two Sigma、Renaissance、AHL、Man Numeric 這種純量化基金的靈魂人物，薪水 ceiling 極高但 bar 也極高。</p>
+
+<h2>不是在 own book 但還是叫 trader 的那些角色</h2>
+
+<p><strong>Sales Trader</strong> 在 equities 的世界裡覆蓋特定客戶，客戶下小單就直接丟進銀行的 VWAP 或 TWAP 演算法，下大單才會親自介入，要嘛代客管理 execution、要嘛承接 block 變成 principal，他們賺的是佣金加上偶爾承接部位的 spread，不是真正在 own risk。這個角色在 cash equities 被電子化吃掉很多，現在存活下來的 sales trader 都要同時懂 algo、懂 block、懂 programme trading。</p>
+
+<p><strong>Execution Trader</strong> 在 buy-side 那邊最典型，對沖基金或資產管理公司的 PM 決定今天要砍掉 20% 的 Uber 部位，execution trader 負責在收盤前把這批股票賣掉、還要把 implementation shortfall 壓到最低。他們沒有 PnL 責任、薪水遠低於 PM，但好的 execution trader 能替基金省下的交易成本其實可觀，特別是在 fixed income 這種流動性碎片化的市場。</p>
+
+<p><strong>Agency / Low-Touch Trader</strong> 完全不碰風險，純粹把客戶的單送進市場，只收極低佣金，現在大部分都是演算法在做，但人還是要監管，這個職缺數在過去十年縮了大概七成。</p>
+
+<p><strong>Interdealer Broker（IDB）</strong> 是最純粹的 agency 角色，坐在 Tullett Prebon、Icap、Tradition、BGC 這些 IDB 公司裡做 voice broker，兩邊都是 dealer bank 的 desk，broker 在中間匿名撮合、收一個極小的 brokerage fee，完全不持有任何部位。這個角色不是 trader，但每天跟最多 trader 講話，知道整個 interbank 市場在發生什麼。TP ICAP、Tradition、BGC 在金融海嘯後結構性萎縮，voice broking 的黃金年代已經過去，現在靠 hybrid voice-electronic 的平台和 data 生意勉強撐著。</p>
+
+<h2>那些離 trader 一步之遙但沒掛 trader 頭銜的人</h2>
+
+<p><strong>Structurer</strong> 設計複雜的結構性產品，TARF、accumulator、autocallable、snowball 這些都是 structurer 的戰場。他們不 own book，但每個產品落地之後 trader 就要接住那個部位去對沖，所以 structurer 跟 trader 之間永遠有張力，一個在設計、一個在承擔。很多 structurer 職涯後期會 rotate 去做 trader，因為他們最懂產品的 Greeks 和對沖邏輯。</p>
+
+<p><strong>Sales / Coverage</strong> 覆蓋客戶、拿下 RFQ、把 trade idea 推給客戶，不 own book、不吃市場風險，但年底看業績是看自己 book 的 PnL 分成。很多人以為 sales 只是接電話的業務，其實 top sales 對市場的理解不輸 trader，只是方向不同：trader 看庫存、sales 看關係。</p>
+
+<p><strong>Treasury Trader</strong> 管的是銀行自己的資金和流動性，FTP、LCR、NSFR、AT1 發行、repo desk 都在這。這群人某種意義上是銀行內部的 PM，他們不叫自己 front office trader，但其實掌握著銀行整個資產負債表的命脈。</p>
+
+<p><strong>Prime Brokerage Financing / Synthetic Financing</strong> 服務對沖基金客戶，提供融資、股票借貸、swap financing，跟 Delta One、Sec Lending 之間邊界模糊，很多銀行把這三者放在同一個大 umbrella 底下。</p>
+
+<p><strong>Securities Lending / Collateral Management</strong> 處理 trade 落地後的 margin、repo、三方 collateral，是整個 trading ecosystem 的管線，沒有他們 trader 根本沒辦法把部位做大，也是 XVA 底下 FVA 和 MVA 計算的直接輸入。</p>
+
+<p><strong>Portfolio Manager</strong> 才是買方真正負責賺錢的角色，PM 決定買什麼、賣什麼、配置多少，trader 只負責把 order 執行出去。對沖基金的 PM 通常自己就是 trader + analyst + risk manager 三合一，但在大型 asset manager 裡這三個角色是徹底分開的。</p>
+
+<h2>所以下次聽到有人說他是 trader</h2>
+
+<p>真正要問的是他在哪家公司、哪個 asset class、哪個 desk、own 不 own book、拿的是 salary + bonus 還是 PnL sharing。這五個問題答完之後你才知道對方講的 trader 到底是哪一種：是那個每天揹著幾億美元庫存風險的 flow trader，還是 Jane Street 那種拿 bonus 一次八位數的 prop trader，還是幫別人按滑鼠把單子送進交易所的 execution trader，或者只是昨天晚上才在 IG Markets 開戶、用槓桿買了一百股 Tesla 的那種 trader。</p>
+
+<p>擦鞋童那個笑話不是在笑擦鞋童，是在笑當 trader 這個字變得廉價的時候，整個市場離修正已經不遠了。</p>]]></content:encoded>
+</item>
+<item>
+<title>債券沒人報價，Credit ETF 憑什麼只有 1bp 價差</title>
+<link>https://londonblackcat.substack.com/p/007-credit-etf-1bp</link>
+<guid isPermaLink="false">cat-themove-007</guid>
+<pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>拆解 creation/redemption 與 AP 套利，看它如何把停擺的債市壓成一個跳動的 ticker</description>
+<content:encoded><![CDATA[<p>Credit ETF 最弔詭的地方在於，它的 underlying 是債券，流動性很差，一整天可能根本沒人報價，ETF 卻可以做到 bid-ask spread 只有一兩個 bps。這件事在金融工程的世界裡其實是個小奇蹟。</p>
+
+<p>讓這個奇蹟運作的核心是一套叫 creation and redemption 的機制，加上一群幾乎沒人聽過的人，叫做 Authorized Participant。他們每天在做的事情，就是把場內 ETF 的價格跟場外那一籃子 bond 的真實價值黏在一起，當價差大到一個程度就出手套利。</p>
+
+<p>這個機制是 Credit ETF 跟很多人以為相似的 closed-end fund 最根本的差別，也是 Covid 期間債券市場幾乎停擺的時候，Credit ETF 反而變成價格發現主場的原因。下面我把這套機制從淺到深拆給你看。</p>
+
+<h2>先承認一件事：bond market 長得跟你想的不一樣</h2>
+
+<p>要理解 Credit ETF 為什麼運作得起來，要先承認一件事，bond market 的真實面貌跟一般人想像的差很多。全球 bond market 規模比股市大很多，但絕大多數交易不是發生在交易所，而是 OTC 市場，由 dealer 之間透過電話、Bloomberg chat、RFQ 平台一筆一筆拼出來的。一檔 high yield bond 可能整週都沒人報價，連 IG bond 一天能成交一兩筆都算正常。</p>
+
+<p>這就是 Credit ETF 看起來像悖論的地方，underlying bond 流動性那麼差，但 LQD、HYG、JNK 這些 ticker 在交易所一天可以換手幾十億美元，bid-ask 只有一兩個 bps。能做到這件事，是因為 ETF 結構裡有一個叫做 creation and redemption 的設計。</p>
+
+<h2>Creation 跟 Redemption 到底在做什麼</h2>
+
+<p>一張 ETF share 不是憑空印出來的，它背後對應的是一籃子 bond，這個籃子叫做 creation basket，每天由 ETF issuer 公告。所謂的 creation 就是有人拿著符合 basket 規格的 bond 去 issuer 那邊，issuer 收下 bond 之後發給對方等值的 ETF share，這個過程叫做 in-kind creation，是 primary market 的事情，跟交易所裡你買賣 ETF 沒直接關係。</p>
+
+<p>Redemption 就是反過來，有人拿一籃 ETF share 去 issuer 那邊，issuer 收下 share 把對應的 bond 還給對方。這個機制最關鍵的特性是 ETF 的供給可以隨需求伸縮，需求大就 create 出更多 share，需求小就 redeem 掉，這跟一般股票或 closed-end fund 那種固定 share 數量的結構完全不同。</p>
+
+<h2>AP 是誰</h2>
+
+<p>不是所有人都可以做 creation/redemption，有資格的只有 Authorized Participant，簡稱 AP。他們是跟 ETF issuer 簽過 AP agreement 的特定金融機構，全球大概就那十幾家，名單你也猜得到：JP Morgan、Goldman Sachs、Citi、Bank of America 這些大型 broker dealer，加上 Citadel Securities、Jane Street、Flow Traders、Virtu 這些專做 ETF market making 的玩家。</p>
+
+<p>AP 的角色有兩個：</p>
+
+<ul>
+<li>交易所端的 market maker，負責報價接單。</li>
+<li>primary market 的 creation/redemption agent，當二級市場供需失衡時去 issuer 那邊調整供給。</li>
+</ul>
+
+<p>這兩個角色合在同一個機構身上，套利的邏輯才能成立，這也是 ETF 整個生態系最精密的設計。</p>
+
+<h2>實務上一天是怎麼運作的</h2>
+
+<p>早上 ETF issuer 會公告當天的 creation basket 跟 redemption basket，這兩個 basket 通常不完全相同，也不一定等於 ETF 的整個 portfolio。issuer 會根據自己想加倉或減倉的 bond 來調整 basket 內容，這是 ETF PM 主動管理 portfolio 的一個工具。</p>
+
+<p>AP 整天在交易所幫這檔 ETF 報價，買賣價差大概 1-2 bps，他們的 inventory 會隨著市場 flow 累積或縮水。假設今天市場狂買 LQD，AP 賣出大量 ETF share 之後 inventory 變負，他們就會去買 underlying basket 裡的 bond，傍晚 cut-off 之前把 bond 交給 issuer 做 creation，拿到新印出來的 ETF share 來 cover 部位，整個過程 T+1 settle。AP 賺的是 ETF 賣價跟 underlying bond 買價之間那幾個 bps 的差。</p>
+
+<p>實務上還有一個重要設計叫做 cash creation。當 underlying bond 太難買到，特別是 high yield 或 EM bond 那種一天都湊不齊 basket 的 case，AP 可以付現金給 issuer 替代 in-kind delivery，由 issuer 自己慢慢去市場上累積 bond。這個機制讓 Credit ETF 在流動性極差的市場下還能持續運作，是 equity ETF 完全不需要的彈性。</p>
+
+<h2>跟 Closed-end Fund 最根本的差別</h2>
+
+<p>很多人會把 ETF 跟 closed-end fund 搞混，兩者最根本的差別就在 creation/redemption。closed-end fund 在 IPO 把所有 share 賣完之後 share 數量就固定了，沒有 AP，沒有 in-kind 機制，後續的買賣完全在二級市場進行，沒有任何人有義務或誘因去把 share price 拉回 NAV 附近。</p>
+
+<p>這個差別的後果非常具體，bond closed-end fund 經常 trade at 5-15% discount to NAV，有時候甚至 20%，因為沒有套利機制，PIMCO、BlackRock 那些有名的 bond CEF 折價狀態可以維持好幾年。反觀 ETF 因為 AP 隨時可以做 creation/redemption，價格跟 NAV 的偏離通常控制在幾個 bps 之內，這也是為什麼大規模機構資金會選 ETF 而不是 CEF 來 express credit view。</p>
+
+<h2>套利機制怎麼把價格鎖在 NAV 附近</h2>
+
+<p>套利的邏輯其實很乾淨。當 ETF 在交易所的價格高於 NAV 一個明顯幅度，也就是 premium，AP 會在二級市場賣出 ETF，同時去市場買 underlying basket 的 bond，傍晚做 creation 把 bond 換成 ETF share 來 cover 賣出部位，賺到的就是 premium 的價差；反過來當 ETF 折價 trade，也就是 discount，AP 在二級市場買進 ETF、做 redemption 拿到 bond 去賣，賺 discount 的價差。</p>
+
+<p>這個套利會持續到 premium 或 discount 縮小到不足以覆蓋 AP 的交易成本，包括 bond bid-ask、ETF bid-ask、settlement risk、capital cost。所以 ETF 的偏離度不會是零，而是一個跟 underlying 流動性相關的動態均衡，越流動的 ETF 偏離越小，越冷門的 ETF 偏離越大。</p>
+
+<h2>Credit ETF 有個別人沒有的弔詭</h2>
+
+<p>Credit ETF 還有一個其他 ETF 沒有的特殊現象，就是在市場壓力下 NAV 本身會 stale。bond 的 NAV 是用 evaluated price 算出來的，那些 price 來自 ICE、Bloomberg BVAL 這些 pricing service，當 bond 整天沒成交的時候他們會用 model 算一個 indicative price，這個 price 不一定反映真實的可成交價格。正常時候沒問題，市場壓力下就會出事。</p>
+
+<p>2020 年三月最緊張那幾天，LQD 的市場價格一度比 NAV 折價 5%，新聞標題寫得像是 ETF 出了問題，但其實是反過來，ETF 的 market price 反映了真實可成交的 bond 價格，而 NAV 還在用前一天 stale 的 evaluated price。那一週 Credit ETF 變成 bond market 的價格發現中心，dealer 在報 corporate bond 的時候會反過來看 LQD 的盤中價來校正自己的 quote，這在金融史上是 ETF 角色的一次根本性翻轉。</p>
+
+<h2>它真正的價值不是讓散戶方便買債</h2>
+
+<p>Credit ETF 真正的價值從來不只是讓散戶方便買 bond，而是它把一個本來分散在電話跟 RFQ 平台上的 OTC 市場，壓縮成一個交易所裡跳動的 ticker，整個信用市場的價格訊號被它放大、加速、攤在所有人面前。</p>
+
+<p>下一次你看到一個基金經理人在 Bloomberg 螢幕上盯著 LQD 跟 HYG 的盤中走勢，與其說他是在交易 ETF，更像是在透過 ETF 解讀整個信用市場當下的脈搏跳動。</p>]]></content:encoded>
+</item>
+<item>
+<title>你買的 S&amp;P 500 ETF，裡面可能一檔美股都沒有</title>
+<link>https://londonblackcat.substack.com/p/008-s-p-500-etf</link>
+<guid isPermaLink="false">cat-themove-008</guid>
+<pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>Synthetic ETF 在歐洲合法又主流：拆解 swap 結構、稅務套利，與沒人看的抵押品籃子</description>
+<content:encoded><![CDATA[<p>歐洲投資人買的 ETF 裡面，可能根本沒有那檔指數的成分股。</p>
+
+<p>這聽起來像詐騙，但它有個正式的名字叫 synthetic ETF，在歐洲市場是合法又主流的存在。尤其是追蹤 S&amp;P 500 或 MSCI 這種境外指數的產品，歐洲發行的版本超過一半是 synthetic 結構，跟美國市場 99% 都是 physical 的世界完全不一樣。</p>
+
+<p>它的運作邏輯是這樣的：發行商不去買成分股，而是跟一家投行簽一份 Total Return Swap，投行承諾把指數報酬交給 ETF，ETF 則持有一籃子可能跟指數毫無關係的抵押品。</p>
+
+<h2>一、兩種結構的根本差異</h2>
+
+<p>Physical ETF 的邏輯很直觀，發行商收到投資人的錢之後，就拿去買指數的成分股，例如追蹤 S&amp;P 500 的 ETF 就會去買那 500 檔股票，持倉跟指數高度一致，這是美國市場的主流做法。</p>
+
+<p>Synthetic ETF 完全不一樣，發行商不買成分股，而是跟一家投行（通常是母行或關係銀行）簽一份 total return swap，由 swap counterparty 承諾把指數的總報酬交付給 ETF，作為交換，ETF 把投資人的錢拿去買一籃子抵押品，這個籃子裡可能是日本公債、歐洲藍籌股、甚至跟你買的指數毫無關係的資產。</p>
+
+<p>所以你買的 ETF 名字叫 iShares S&amp;P 500 Swap UCITS ETF，但打開持倉一看，裡面可能一檔美股都沒有——這在 synthetic 世界裡不是 bug 而是 feature。</p>
+
+<h2>二、歐洲為什麼大量採用 Synthetic</h2>
+
+<h3>稅務套利是最大誘因</h3>
+
+<p>這是業界很少對外講清楚的真相，歐洲投資人買美股 ETF 會被美國國稅局課 30% 的股息預扣稅，就算透過租稅協定也通常要 15%，這對追蹤總報酬指數的 ETF 來說是直接吃掉幾十個 bp 的 tracking error。</p>
+
+<p>但如果是 swap 結構就不一樣了，swap 的現金流在法律定義上不是股息而是 derivative payment，可以合法繞過股息預扣稅，發行商把這個稅務利益的一部分讓給投資人，所以 synthetic 版本的 tracking error 通常比 physical 版本小，這在 institutional money 眼裡就是純粹的 alpha。</p>
+
+<h3>複製成本與流動性問題</h3>
+
+<p>追蹤新興市場、frontier market、或某些利基指數的時候，physical replication 的成本高得驚人，因為這些市場的成分股流動性差、買賣價差大、還可能有外匯管制和當地稅，發行商每次 rebalance 都在燒錢。</p>
+
+<p>Synthetic 用一張 swap 把所有問題外包給 counterparty，由投行用自己的 trading desk 去想辦法 hedge 這個 exposure，發行商只要付一個 swap fee 就能拿到乾淨的指數報酬，對複雜指數來說這是壓倒性的成本優勢。</p>
+
+<h3>UCITS 框架的特殊性</h3>
+
+<p>歐洲的 ETF 絕大多數在 UCITS 監管框架下發行，這個框架對 derivative usage 相對開放，明確允許用 swap 來達成投資目標，只要 counterparty exposure 控制在淨值的 10% 以內。相比之下美國的 1940 Act 對 derivative 的限制嚴格很多，這也是為什麼 synthetic ETF 在美國幾乎不存在、但在歐洲遍地開花的制度性原因。</p>
+
+<h2>三、Counterparty Risk 怎麼管</h2>
+
+<h3>UCITS 的 10% 紅線</h3>
+
+<p>UCITS 規定單一 swap counterparty 的 net exposure 不能超過 fund 淨值的 10%，這個 exposure 怎麼算很關鍵，是 indexed value 減掉 collateral value，意思是只要抵押品夠，理論上 counterparty risk 可以壓到很低甚至接近零。</p>
+
+<p>實務上歐洲主流 synthetic ETF 都把這個數字管理在 2-3% 以內，遠低於監管上限，因為一旦超過就要重新 reset swap 或追加抵押品，操作上很麻煩。</p>
+
+<h3>Funded vs Unfunded Swap Model</h3>
+
+<p>業界發展出兩種模型來控制 counterparty risk：</p>
+
+<ul>
+<li><strong>Unfunded model</strong>：ETF 自己持有抵押品，swap counterparty 只負責提供報酬差額，這是早期主流做法，但有個問題就是抵押品的資產跟指數無關，遇到極端市況可能兩邊一起跌。</li>
+<li><strong>Funded model</strong>：ETF 把現金交給 swap counterparty，counterparty 把抵押品存到第三方獨立託管帳戶，發生違約的時候 ETF 可以直接動用這些抵押品。這個模型的法律保障更強但成本也更高，目前是歐洲大型發行商如 Lyxor 和 Xtrackers 的主流選擇。</li>
+</ul>
+
+<h3>2008 之後的改革</h3>
+
+<p>金融海嘯期間 Lehman 是好幾家歐洲 synthetic ETF 的 swap counterparty，雖然最後沒有投資人受損，但這件事讓監管機構警覺到單一 counterparty 的集中風險，之後的改革包括強制 multi-counterparty 設計、daily mark to market、以及 over-collateralization（抵押品價值超過 swap exposure，通常 105-110%）。</p>
+
+<p>現在的 synthetic ETF 已經不是 2008 那種裸奔狀態，但 counterparty risk 永遠不會歸零，這是 synthetic 結構必須付出的代價。</p>
+
+<h2>四、投資人應該怎麼看</h2>
+
+<p>Physical ETF 的優勢是直觀、透明、抵押品就是指數成分股本身，缺點是某些市場的 tracking error 比較大，而且現在很多 physical ETF 也在做 securities lending 賺額外收入，這層風險常被忽略。</p>
+
+<p>Synthetic ETF 的優勢是 tracking error 小、能進入難複製的市場、還能合法享有稅務利益，缺點是多一層 counterparty risk 跟一個你需要去理解的 collateral basket——這個 basket 裡到底裝什麼，多久換一次，誰在管，這些細節 retail 通常根本不會看。</p>
+
+<p>選擇哪一種沒有絕對答案，但至少要知道你買的是什麼。特別是當你看到一檔 ETF 的 TER 低得不合理、tracking error 又小到不像話的時候，背後通常有 synthetic 結構或 securities lending 在補貼。金融世界沒有免費的午餐，只有你看不見的成本。</p>]]></content:encoded>
+</item>
+<item>
+<title>你抵押的證券正在外面浪流連：再抵押的隱形鏈條</title>
+<link>https://londonblackcat.substack.com/p/post-010</link>
+<guid isPermaLink="false">cat-themove-010</guid>
+<pubDate>Sun, 10 May 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>Rehypothecation 讓一份擔保品變成兩份、四份，從倫敦的法律漏洞到雷曼與 MF Global 的兩座墓碑</description>
+<content:encoded><![CDATA[<p>倫敦金融城與華爾街有一門靠魔術運作了幾十年的生意，叫 rehypothecation。當 hedge fund 把證券抵押給 prime broker 換取槓桿時，PB 不會把那批東西鎖進金庫，而是合約裡早就寫好他可以拿去再利用：借給想做空的人賺 borrow fee，或者 repo 出去換現金 fund 自己的部位，等 client 要贖回時還得出來就好。</p>
+
+<p>而且這條鏈不只一手。下一個收到抵押品的對手方如果合約允許，可以再 rehypothecate 一次，於是金融體系裡的擔保品就這樣一張變兩張、兩張變四張，IMF 算過全球 collateral velocity 危機前接近三倍，現在還有將近兩倍。</p>
+
+<p>平時這個機制是 prime brokerage 收費便宜的來源，是 short selling 子彈的來源，是貨幣市場基金回報的來源。但當鏈條任何一環斷裂，hedge fund 才會深刻體悟便宜 financing 的沈痛代價。</p>
+
+<h2>合約裡那條沒人讀的 right of use</h2>
+
+<p>當你開立 prime brokerage 帳戶簽 client agreement 時，裡面有一條 right of use 條款，授權 PB 把你抵押的 collateral 拿去再利用，PB 用這個權利去賺錢，然後把一部分經濟分潤回到你的 financing rate 上，所以同樣的槓桿你在 PB 借錢比向銀行借便宜。</p>
+
+<p>PB 收到你的證券之後通常會走三條路：</p>
+
+<ul>
+<li>送進 securities lending desk 借給做空的客戶賺 borrow fee</li>
+<li>丟進 repo 換現金來 fund 自己的 trading book</li>
+<li>送去 CCP 當 initial margin</li>
+</ul>
+
+<p>下一個收到的對手方如果合約允許又可以再用一次，這條鏈在 IMF 的研究裡平均長度危機前接近三倍，雷曼之後一度掉到 1.8，現在又慢慢爬回來。</p>
+
+<h2>倫敦漏洞的法律根源</h2>
+
+<p>美國 SEC Rule 15c3-3 規定 PB 能 rehypothecate 客戶 collateral 的上限是 customer debit balance 的 140%，超過必須 segregate 在 customer protection account，這是 1968 年 paper crunch 之後逼出來的規則。英國長年沒有這個 cap，加上倫敦傳統用 title transfer 而不是 security interest，意思是抵押品的所有權直接過戶給 PB，從合約結構上你已經不是 owner 而是 unsecured creditor。</p>
+
+<p>這個監管套利在 2000 年代被美國 hedge fund 玩到極致，把 prime brokerage 業務搬到 Lehman、Bear Stearns、Morgan Stanley 的倫敦子公司，因為英國沒有 cap 等於 PB 可以無上限地拿你的 collateral 出去用，PB 賺更多，client 拿到的 financing rate 更低，雙方都開心，直到雷曼倒下那一天。</p>
+
+<h2>爆炸後的兩個墓碑：LBIE 與 MF Global</h2>
+
+<p>2008 年 9 月 Lehman Brothers International Europe 倫敦清算時，hedge fund 客戶的 collateral 早就在外面流轉，部位完全凍住動不了，有些 client 等了三到四年才透過 administrator 拿回部分資產，期間市場早就變天，能拿回多少純粹看運氣與排隊順序。</p>
+
+<p>2011 年 MF Global 玩得更猛，CEO Jon Corzine 用客戶 segregated account 的錢去 repo 歐洲主權債，賭希臘違約不會發生，最後部位虧掉公司倒閉，16 億美元客戶資金憑空消失。這件事技術上不完全是 rehypothecation，但邏輯一模一樣，都是把不屬於自己的東西當自己的用。兩個案子告訴市場同一個事實：當你的 collateral 已經被 reuse，破產發生時你不是 owner 而是 creditor，順位排在其他擔保債權人後面。</p>
+
+<h2>為什麼這件事至今沒有被廢掉</h2>
+
+<p>因為整個 prime brokerage 的商業模式建立在 rehypothecation 之上。廢掉它等於把 sell-side 的成本結構重寫一次，hedge fund 拿到的便宜 financing 會立刻變貴，short seller 借不到券，貨幣市場基金賴以維生的 repo 收益消失，而這些功能全都是市場流動性的一部分，沒有監管者願意承擔 unwind 的代價。</p>
+
+<p>監管選的路不是禁止，而是縮鏈條、加透明度、強制重要部位 segregation。BCBS 跟 IOSCO 在 2016 年之後逼著所有非中央清算衍生品的 IM 必須 third-party segregated、不准 rehypothecate，VM 還是可以再用但 IM 被釘住，這是過去十年 collateral 業務最大的結構性改變。歐洲 SFTR 也要求所有 securities financing transaction 都要 report 到 trade repository，理論上監管者看得到整條鏈，實務上 buy-side 客戶能不能即時知道自己的 collateral 在哪一手，答案還是不能。</p>
+
+<h2>此刻你的 collateral 在哪裡</h2>
+
+<p>下次你看到 prime brokerage 的 financing rate 比銀行便宜，差價的來源就是 PB 預期可以從你的抵押品身上再賺一輪。市場平時看不見這條鏈，等到看得見的那一天，鏈條通常已經在斷裂中了。</p>
+
+<p>所以，你真的知道自己抵押出去的那批證券，現在在誰手上嗎？</p>]]></content:encoded>
+</item>
+<item>
+<title>coupon 變高不是好消息：能源結構型票據的隱形漲價</title>
+<link>https://londonblackcat.substack.com/p/011-coupon</link>
+<guid isPermaLink="false">cat-themove-011</guid>
+<pubDate>Tue, 12 May 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>issuer 把 vol 上升的好處藏進 barrier，而散戶只會比較 coupon</description>
+<content:encoded><![CDATA[<p>如果你最近被推銷能源結構型票據，而 coupon 比去年高，這其實很反直覺地不是好消息。去年 9 月兩年期是 9% coupon、65% knock-in，今年 4 月詢價可能變成 9.5% coupon、75% knock-in。</p>
+
+<p>中間發生了什麼事？Ted Pick 在 MS Q1 earnings 講過，主要風險是通膨會從能源管道被重新進口到全球，意思是全球通膨原本在降溫，但只要油價因為地緣政治再漲一波，這波漲價就會像水管一樣灌回每個經濟體。這句話被市場當宏觀觀點解讀，但 sell-side 結構型產品 desk 聽到的，是定價假設要被改寫。</p>
+
+<p>過去三年所有掛能源的 SN，autocallable、knock-in、sharkfin，定價都建立在 OVX 大多在 30 以下、能源是低波標的這個前提上。今年 3 月 OVX 衝到 108，是疫情後最高紀錄，前提已經不成立。當 implied vol 翻三倍，issuer 賣給你的 short knock-in put 變得更值錢，他可以拉高 coupon，也可以同樣 coupon 但把 barrier 拉緊——實務上後者更常見。</p>
+
+<h2>Ted Pick 的話中有話</h2>
+
+<p>宏觀分析師看的是通膨、固收 trader 看的是 break-even、FX desk 看的是美元走勢，做結構性產品的 desk 在意的則是 vol regime 有沒有結構性的變化。</p>
+
+<p>MS 4 月中那場 Q1 earnings，焦點其實被 private credit 的 adolescent moment 蓋過風頭，而 MS 的 Ted Pick 在 earnings call 結束後接 Bloomberg 訪問時，把 inflation 風險點到能源管道這件事，被市場讀成宏觀預警。這個讀法本身沒錯，只是訊號還有更內部的一層：sell-side 對能源 vol 的假設已經從 stationary 換成 regime-shift 模式。在 MS 公開放話之前，內部的 quant 早就把 calibration window 拉長了，term sheet 上的條款也已經跟著動過。</p>
+
+<h2>Commodity 從低波動直接跳成高波動</h2>
+
+<p>2023 到 2025 這三年，WTI 大部分時間在 65 到 85 美元的區間上下震盪，OVX 平均落在 30 附近，能源股的 realized vol 一度比科技股還低。這個低波動環境，就是過去三年所有掛能源 underlying 的 SN 能給出 7 到 9% coupon 的真正底氣。</p>
+
+<p>然而，2026 年的劇本完全變了。</p>
+
+<p>2 月底美國跟以色列對伊朗動手，3 月初霍爾木茲海峽被宣告關閉，全球 20% 的原油供給瞬間卡死。沙烏地、伊拉克、科威特、阿聯酋四國合計減產 6.7 百萬桶，QatarEnergy 對 LNG 合約宣告 force majeure。Brent 從 60.85 美元一路衝到 118.35 美元的高點，3 月單月漲 51%，是有紀錄以來最大單月漲幅之一。</p>
+
+<p>OVX 從年初 36 衝到 108 的高點，52 週區間從 23.59 拉到 125.99。就算 4 月 8 號美伊停火，多數分析師估油價會錨在 80 到 90 美元的位置，戰前 70 美元那個水位短期內看不到——基礎設施被打、伊朗水雷還在、油輪船員的心理創傷也已經形成。</p>
+
+<p>CTA 這波操作很簡單粗暴，年初還是 91% short crude，3 月 9 號已經 100% long，到 4 月初仍維持滿倉長倉。Systematic 資金在這種時間尺度上的轉向，比任何 sell-side strategist 的 call 都更接近真正的供需 ground truth。</p>
+
+<h2>魔鬼藏在細節裡</h2>
+
+<p>一張 commodity-linked autocallable note 拆開來看，其實是三件事的組合：你買的是一張零息債，加上你賣給 issuer 一張 down-and-in put，再收一串 contingent coupon。autocall 那個機制讓 issuer 可以在標的漲過某個點時提前把錢還你，所以你拿到的 coupon，本質上就是那張 short put 的權利金。</p>
+
+<p>當 implied vol 從 30 跳到 70，那張 put 變得比以前值錢一倍以上。Issuer 多收下來的權利金要怎麼處理呢？直覺上你會覺得 coupon 拉高最直接、最看得到，這個直覺沒錯，只是實務上 issuer 更偏好把多出來的權利金放在 barrier 那邊，coupon 那邊盡量維持原樣。</p>
+
+<p>為什麼？原因很實際，因為散戶通常只會比較 coupon，而對 barrier 沒那麼敏感。11% coupon 突然出現會引起客戶問為什麼這麼香；9% coupon、barrier 從 65% 變 75% 看起來跟去年發的幾乎一樣，沒人會多問。Issuer 等於把 vol 上升的好處安靜地收進自己的 hedging book。下面這三種變化的共通點，都是把調整放在散戶不會主動比較的位置。</p>
+
+<ul>
+<li><strong>coupon 不太動，但 knock-in barrier 從 65% 拉到 75%。</strong>從投資人角度看，標的回檔 25% 就會 knock-in，過去要回檔 35% 才會碰到。barrier 越靠近 spot，path-dependent 的觸發機率對 vol 的敏感度也越高，這個改動的影響不會只是線性的。</li>
+<li><strong>coupon 拉高一點點，但 autocall barrier 從 100% 降到 95%。</strong>意思是標的漲 5% 你就被提前贖回，你以為自己鎖到的是兩年期 coupon stream，實際情境裡可能一個季度就被 call 走，再進場的時間點跟可拿到的 spread 都由不得你。這種設計等於把 reinvestment risk 從 issuer 那邊轉到投資人身上，這層轉移不會寫在 term sheet 上。</li>
+<li><strong>coupon 跟 barrier 都不太動，但 underlying 從原本的 XLE 一檔，換成 XLE、XOP、加一檔 oil major 個股的 worst-of basket。</strong>correlation 假設一換掉，整張 note 的下檔就由 basket 裡表現最差的那一檔來決定，原本的分散效果消失。這個變化用肉眼看 term sheet 看不出來，要把 basket 內標的的歷史 correlation 拉出來才能還原成本。</li>
+</ul>
+
+<h2>Term sheet 上沒寫的東西要怎麼讀</h2>
+
+<p>term sheet 上你看不到 vol assumption，也看不到 correlation matrix 跟 issuer 內部的 calibration date，能看到的只有 headline coupon、knock-in level、autocall level、underlying、到期日這幾個欄位。</p>
+
+<p>但有幾個條款細節可以對照著看。</p>
+
+<ul>
+<li><strong>同一家 issuer 同一系列產品，把 2024 跟 2026 的條款放在一起比。</strong>barrier 有沒有悄悄拉緊 5 到 10 個百分點？這個一看就看得出來。</li>
+<li><strong>underlying 也要看。</strong>如果突然從 single name 變成 worst-of basket，這通常代表 issuer 透過 correlation 把多出來的 yield 拿回去了，這個改動的代價要看 basket 內標的的歷史 correlation 才有概念。</li>
+<li><strong>autocall observation 的頻率也是個訊號。</strong>越密代表 issuer 提前贖回的 optionality 越值錢，這個細節通常藏在 term sheet 的小字裡。observation 越密，你的 coupon stream 越接近選擇權權利金的性質，跟一般固定收益的距離也越遠。</li>
+</ul>
+
+<p>最簡單的一個判斷，是看你被推銷的時間點。sell-side 給出最甜的 term，永遠是在他們對 vol 假設最舒服的那段時間。當 CEO 已經站出來公開告訴你 vol regime 已經變了，那個甜頭通常早就過了。</p>
+
+<p>下一次有人拿著比去年更高的 coupon 來找你，你會先看哪一欄？</p>]]></content:encoded>
+</item>
+<item>
+<title>SpaceX IPO：散戶從不在牌桌上的遊戲</title>
+<link>https://londonblackcat.substack.com/p/023-spacex-ipo</link>
+<guid isPermaLink="false">cat-themove-023</guid>
+<pubDate>Thu, 11 Jun 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從 cross the wall、pre-sounding 到佣金換配額，一個投行人視角拆解散戶在 IPO 裡的三層結構性劣勢</description>
+<content:encoded><![CDATA[<p>當你興奮地在券商 App 上點下「申購 SpaceX」那一刻，覺得自己終於擠進了一場世紀盛宴，但對投行和 buy-side 來說，這場盛宴的主菜兩個月前早就已經分完了，你拿到的只是收桌時剩下的盤子。</p>
+
+<p>從你聽說 SpaceX 要上市，到你真的能下單，這中間發生的事情你幾乎一無所知。投行的 equity research 團隊早就 cross the wall 拿到未公開的內部資訊，少數買方機構被帶進牆內做 pre-sounding 先淺嚐這顆金蘋果的滋味，而 buy-side 那邊年薪數百萬的 PM 正動用平時餵出去的佣金搶配額，而這一切的設計，就是為了確保等輪到你的時候，桌上只剩下他們不要的剩菜。</p>
+
+<p>今天想以一個投行人的內部視角，一步步帶你看投行內部和 buy-side 在新股 IPO 期間到底在做什麼。</p>
+
+<h2>一檔 SpaceX 等級的 IPO，是從一場「越界」開始的</h2>
+
+<p>在投資銀行內部，負責股票研究的 equity research 團隊與負責發行的 ECM（equity capital markets）團隊之間，設有一道被稱為中國牆（Chinese Wall）的合規屏障，目的是隔開公開的研究意見與承銷業務之間的利益衝突。平時這兩邊的資訊流動受到嚴格管控，因為一個是裁判、一個是球員，彼此不能串通。</p>
+
+<p>可是當 SpaceX 這種案子要上市，投行就得讓分析師走進牆的另一邊拿到公司內部資訊。這時分析師會透過一道叫 cross the wall 的程序，在層層批准後正式進入牆的另一邊，取得公司尚未公開的重大內部資訊與 presentation deck，這個動作意味著他在資訊揭露上被正式納管，接下來在資訊解禁前都不能對外發表相關意見。</p>
+
+<p>跨牆之後的工作強度往往超乎想像。分析師必須在極短的時間，有時候就是一兩天之內，建立一套複雜的財務模型，並撰寫一份動輒上百頁的深入初始研究報告，也就是 initiation report，這份報告會涵蓋公司的商業模式、產業結構、競爭格局、財務預測與估值框架，成為機構投資者後續判斷的重要基礎。</p>
+
+<h2>震撼教育：Investor Education 與密集路演</h2>
+
+<p>在公司管理層正式展開路演之前，投行的分析師會先進行一個叫 investor education 的階段，目的是協助機構投資者理解這家公司的商業模式、估值框架以及關鍵爭議點。講白了就是先讓買方搞懂這家公司到底在做什麼、值多少錢、最大的爭議在哪。以 SpaceX 為例，這些爭議點可能包括星鏈的單位經濟學、發射市場的市佔率假設、以及未來現金流的可預測性。</p>
+
+<p>在這個階段，分析師會連續大約兩週、每天安排十多場一對一會議，密集地向 buy-side 機構說明與推銷，而為了維持研究的合規與客觀，ECM 的銷售人員被嚴格禁止參與這些私人會議，避免承銷利益直接滲入研究溝通。</p>
+
+<h2>買方也有 IG 摯友搶先看？</h2>
+
+<p>這套流程裡有一個外界容易忽略但極為關鍵的時間差。在上市前的投資者教育階段，研究報告絕對不能給出明確的目標價與買賣評級，分析師頂多只能提供一個估值範圍，也就是 target range，直到公司正式上市大約十天到兩個星期之後，研究團隊才能發布更新報告，這時候才會給出精確的預測數字、具體的目標價，以及買入、賣出或保留的評級。</p>
+
+<p>換句話說，等你某天在新聞上看到某券商喊 SpaceX 目標價多少的時候，那些機構早在好幾個禮拜前就已經完成了資訊吸收與下單決策，你看到的所謂利多，其實是別人吃飽之後才端上桌的冷飯。</p>
+
+<h2>Buy-side 的配置：年薪數百萬的 PM 決定要不要投</h2>
+
+<p>把視角轉到 buy-side，這裡指的是對沖基金、long-only 基金、被動指數基金等大型機構，他們面對 IPO 的配置與運作同樣精密，且不同類型的基金扮演不同角色。</p>
+
+<p>大型基金，尤其是對沖基金，並不會盲目參與每一次 IPO，而是會聘請年薪高達數百萬美元的專屬投資組合經理，也就是 portfolio manager，專門負責 IPO 投資策略。這背後的經濟誘因很直接，因為歷史數據顯示 IPO 首日的平均回報率高達 19% 到 29%。這些 PM 的核心任務是建立市場優勢，也就是所謂的 edge，不僅要精準判斷哪些 IPO 值得投資，更重要的是在鎖定目標後，用盡各種手段拿到最多的配額。</p>
+
+<h2>被選中的大買方：圈內人的 Pre-sounding</h2>
+
+<p>在 IPO 正式對外公布之前，投行有時會將少數特定的機構投資者帶到牆內，進行一個叫 pre-sounding 的預先試探，這些被選中的機構必須簽署保密協議，也就是 NDA，並遵守相應的交易禁令，投行藉此來測試市場對這檔發行的興趣、摸索可接受的估值區間，並提前建立需求基礎。</p>
+
+<p>這個機制的本質是讓最重要的幾家機構比所有人更早接觸到發行資訊與定價邏輯，而能進入這個圈子的，幾乎清一色是與投行關係深厚的大型 buy-side。</p>
+
+<h2>配股爭奪戰：佣金籌碼與潛規則</h2>
+
+<p>要在 IPO 市場中獲利，單靠眼光是不夠的，真正的關鍵在於拿貨能力，也就是能不能拿到熱門股的配額。數據可以說明這件事的重要性：頂級投行像 JP Morgan、Morgan Stanley 所經手的 IPO，首日平均升幅高達 25% 到 26%，這意味著只要拿得到配額，勝率與報酬都相當可觀。</p>
+
+<p>大型基金爭取配額的籌碼是佣金。他們在平時的日常交易中會貢獻極其龐大的 commission 給這些頂尖投行，等到出現勝率極高、幾乎必賺的熱門 IPO 時，便能以這些長期累積的佣金作為談判槓桿，施壓投行給予更多的熱門股分配。</p>
+
+<p>除此之外，buy-side 也深諳金融圈的配貨潛規則。為了維持與投行的長期合作關係，並確保未來能拿到巨型熱門 IPO 的龐大額度，基金有時必須妥協，吃下一些投行難以推銷出去的冷門配股。這個邏輯就像買名牌包必須先配貨買其他周邊一樣，先幫投行消化不好賣的案子，才能換取下一次站在分配名單前排的資格。這整套以佣金與配貨構成的關係網，本身就是一道散戶無法跨越的門檻。</p>
+
+<h2>Buy-side 內部的套利博弈</h2>
+
+<p>很多人以為買方內部都是一夥的，但其實面對巨型 IPO，他們裡面不同類型的基金 desk 之間其實是彼此博弈套利的關係。</p>
+
+<p>第一層是<strong>被動指數基金的被迫接盤</strong>。像 SpaceX 這類巨型公司上市後，通常會在一兩個星期內透過快速通道，也就是 fast track，被納入納斯達克或 S&amp;P 等大型指數，這會讓追蹤這些指數的被動型基金面臨嚴重的追蹤誤差風險，也就是 tracking error。為了讓自己的持股結構貼合指數，無論當時股價多貴，這些被動基金都必須在納入時被迫進場買入。以 SpaceX 為例，市場預估這會帶來高達 120 億到 180 億美元的強迫買盤。</p>
+
+<p>第二層是<strong>對沖基金的搶先埋伏</strong>。對沖基金經理非常清楚這個指數納入的機制，所以他們在 IPO 階段拼命動用關係搶貨，動機不只是賺取首日的漲幅，更是看準了接下來幾週內必然會有被動基金進場接盤，於是他們可以相對安穩地把手中的籌碼，在指數納入帶來的買盤推升下，高價倒貨給這些被規則逼著買單的指數基金，完成一場結構性的套利。</p>
+
+<h2>這場 IPO 還會悄悄抽乾別的股票</h2>
+
+<p>最後還有一個外溢效應很少人講。當這些大買方決定要重壓 SpaceX、OpenAI、Anthropic 這種等級的巨型科技 IPO，要砸的錢實在太大，他們沒辦法憑空變出來，只能賣掉手上原本的大型科技股，或是把一堆市值較小的股票一起出掉來騰錢，就像拿無數個小杯子舀水去填一個大浴缸。</p>
+
+<p>結果就是，一檔超大型 IPO 的籌資，會把市場其他角落的資金整片抽走，連帶讓一些跟這檔股票八竿子打不著的標的莫名其妙承受賣壓，整個市場的資金面都被它牽動。</p>
+
+<h2>為何散戶難以勝出？</h2>
+
+<p>把以上的機制串起來，就能理解散戶在 IPO 遊戲中的結構性劣勢來自三個層面。</p>
+
+<ul>
+<li><strong>第一是逆向選擇。</strong>雖然 IPO 首日平均會漲，但實際上有 24% 到 35% 的新股首日是下跌的。散戶沒有大型基金的佣金籌碼與談判槓桿，在那些勝率極高的熱門案子裡往往連半張股票都分不到，而能夠輕易抽中、想要多少有多少的，往往是機構投資者翻過一輪後不想要的劣質 IPO，這導致散戶的實際回報遠低於市場統計出來的平均值。</li>
+<li><strong>第二是長期回報的嚴重落後。</strong>歷史數據顯示，若把 IPO 股票持有三年，平均升幅僅約 7.6%，但如果進行市場調整，也就是 market adjusted 之後，其表現實質上大幅落後大盤高達 25.5%，這意味著抱著長期投資心態參與 IPO 的人，統計上更容易淪為輸家。</li>
+<li><strong>第三是最致命的解禁倒貨壓力。</strong>巨型 IPO 上市時通常只釋出極少部分的股份進入市場，例如僅僅 4%，藉此營造出籌碼稀缺的假象把首日價格頂高，然而在上市半年到一年後，早期投資者、員工與創辦人手上佔了剩餘 96% 的巨量持股將迎來 lock-up expiration 的解禁期，當這些獲利高達數十倍的內部人士把價值數千億美元的股票湧入市場變現時，會形成極大的籌碼供給壓力，導致股價嚴重受壓甚至暴跌。</li>
+</ul>
+
+<p>整體來看，buy-side 在 IPO 中的運作，是結合了頂級人才的財務建模判斷、龐大佣金所換來的談判特權、以及對市場規則例如指數納入機制的極致利用。這是一個充滿資源落差的戰場，也正是缺乏籌碼與談判槓桿的散戶，極難在 IPO 遊戲中贏過大型機構的根本原因。</p>]]></content:encoded>
+</item>
+<item>
+<title>現代華爾街還吸毒嗎？從古柯鹼到 Adderall</title>
+<link>https://londonblackcat.substack.com/p/025-adderall</link>
+<guid isPermaLink="false">cat-themove-025</guid>
+<pubDate>Tue, 23 Jun 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>派對毒品退場、績效藥物進場，交易台的興奮劑換了世代，自我消耗的方式卻只是變得更難察覺</description>
+<content:encoded><![CDATA[<p>在電影的刻板印象中，華爾街給人的印象是穿著西裝筆挺，在女人身上吸古柯鹼。但那個畫面早就是上世紀的事了。</p>
+
+<p>現代華爾街，真的還有人在吸毒嗎？</p>
+
+<p>講個大實話，藥物濫用的問題不只金融業，在各個產業都存在，只是藥物的種類在金融業已隨文化推移，從古柯鹼變成其他現代藥物。現在交易台上真正被濫用的是 Adderall、Zyn 跟高濃度咖啡因，以前那種拿來炫耀與追求刺激的派對毒品，已被工作狂常用的提神藥取代。</p>
+
+<p>Adderall 本質上是安非他命，會讓人嚴重上癮。2008 金融危機之後，整個產業面對的審查變多，八零年代那種沒念過大學、靠社交跟膽量吃飯的交易員幾乎絕跡，分析工作轉而吸引進來的是常春藤名校、更宅、更內向的一群人，所以用藥文化也從炫耀型轉成生產力型藥物。</p>
+
+<p>接下來，我們從一位華爾街日報記者與一位業內人士的角度，深度探索這個現象。</p>
+
+<h2>記者視角：從派對毒品到績效藥物</h2>
+
+<p>根據華爾街日報記者 Alex Saeedy 表示，金融業當然還有人用藥，但用藥種類已不是大家所想像的傳統毒品。</p>
+
+<p>古柯鹼吸引的是愛冒險、愛刷存在感的人，屬於更外放的上個世代，而現在辦公室裡更常被濫用的，是 Adderall、Zyn、高濃度咖啡因還有能量飲料。他特別點名 Adderall，說它本質上是安非他命，是一種會讓人嚴重上癮的藥。重點是，這些東西不是拿來自己爽的，它有點像運動員的禁藥，是拿來提升表現的，用藥目的從單純追求刺激變成提升產能。</p>
+
+<ul>
+<li><strong>Adderall</strong> 是一種處方藥，成分是安非他命類的中樞神經興奮劑（amphetamine），主要用來治療注意力不足過動症（ADHD）和嗜睡症。它能提升專注力、警覺和精力，但正因為是安非他命，濫用後很容易成癮，沒有相關病症卻拿來「加班提神」風險不小。</li>
+<li><strong>Zyn</strong> 是一個尼古丁口含袋（nicotine pouch）的品牌。一小包白色軟袋夾在嘴唇和牙齦之間，釋放尼古丁但不含菸草、不用點火、也不會吐口水，所以可以神不知鬼不覺地在辦公室或會議裡使用。它本質上提供的是尼古丁的提神與放鬆感，近年在金融圈和科技圈很流行，但仍有尼古丁成癮性。</li>
+</ul>
+
+<p>Alex 也把這個轉變放回大環境裡。八零年代的交易台是個吵鬧的遊樂場，整天掛在電話上，坐在那裡的多半是沒念過大學但很會做 trade、抓價差的社交動物。但 2008 金融危機之後，監管全面收緊，風險被推到邊緣，compliance 跟風控的權力大到能盯住每一個人。現代的交易台，電腦接手了大約一半的分析工作，每個人前面至少有 4 個螢幕，吸引進來的交易員通常是常春藤名校、更宅、更內向的一群人，用藥文化也從炫耀型轉變成內捲的生產力型用藥。</p>
+
+<h2>現場視角：Turney Duff 的九零年代</h2>
+
+<p>至於 Turney Duff，那個九零到兩千年代的傳奇避險基金交易員，講出的更是記者給不出的第一手現場。</p>
+
+<p>Turney 說他真正的天賦是交際。白天坐在一個哈佛畢業的男生跟一個杜克畢業的女生旁邊，他完全沒有勝算，但他發現到了 Happy Hour，他可以碾壓那個哈佛的傢伙，也可以碾壓那個杜克的女生。所以當辦公室的燈熄掉、城市的燈亮起，那才是他發光發熱的時刻，而那些不社交、不喝酒不嗑藥的哈佛杜克高材生，則在某種程度上幾乎變成他們職涯的障礙。</p>
+
+<p>Turney 三十二歲時創立了一檔叫 Argus Partners 的避險基金，規模做到大約十四億美元，一年創造約五千萬美元的佣金，於是華爾街上有二十個、三十個 broker 紛紛都想分這五千萬的一杯羹。他反問：如果你要從他這拿走兩三百萬的生意，你會願意做什麼？答案是他想要什麼，你幾乎都會照做。於是公司會把他配給那些二十五到三十歲、單身又很會玩的傢伙，這些人清楚知道該怎麼伺候他的帳戶。</p>
+
+<p>他描述某個週末他跟十五到二十個人飛出去，一路在飛機上狂歡整路嗑嗨，等他那個週末回來，他手上原本的單，全都被分給了當時在那架飛機上的人。他說你就是這樣養出一段段一起成長的、以藥物堆出來的關係。這些關係確實對他的職涯有幫助，但他也坦言，那從來沒讓他變成更好或更專注的交易員。</p>
+
+<h2>Playing through，以及權力的翻轉</h2>
+
+<p>他也描述了所謂 playing through，意思是你基本上不回家，或者只是換一套西裝，然後永遠不上床睡覺。他最長一次連續三天沒睡，星期三早上醒來，一路撐到星期六才倒下。他還記得金融海嘯前 compliance 跑來交易台找他喊他名字，他可以直接把人趕走，因為他在前台賺錢，而有錢就是老大。但海嘯之後完全反過來，現在 compliance 的權力比誰都大。</p>
+
+<p>Turney 離開這行後在漢普頓碰到一個在超大型資產管理公司當交易台主管的人，對方告訴他現在跟 broker 吃飯預算已大幅減少，甚至還得自己付錢，根本不值得，那套用美食跟娛樂換生意的招待文化，已經被不少人主動收掉。Turney 談到這一代轉向 Adderall，等於在大腦其實不需要的時候硬灌一劑強效興奮劑，長期下來對心理的傷害更是深不可測。</p>
+
+<h2>真正讓人上癮的，從來不是藥</h2>
+
+<p>也許真正讓華爾街上癮的，從來就不是任何一種藥，而是工作本身，或者是金錢。當一個產業的興奮劑從派對用的古柯鹼，換成讓你多撐兩小時的 Adderall 跟 Zyn，它表面上看起來比古柯鹼健康多了，但骨子裡只是把外放的放縱，換成了更難以察覺的自我消耗與沉淪。</p>
+
+<hr>
+
+<p><em>參考資料：Does Wall Street do drugs anymore? — Good Work</em></p>]]></content:encoded>
+</item>
+<item>
+<title>天氣也能定價：Weather Derivatives 的前世今生</title>
+<link>https://londonblackcat.substack.com/p/027-weather-derivatives</link>
+<guid isPermaLink="false">cat-themove-027</guid>
+<pubDate>Thu, 25 Jun 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>從 1996 年那筆怕涼夏的電力合約，到今天再保險與避險基金接手的 250 億美元氣候風險轉移市場</description>
+<content:encoded><![CDATA[<p>歐洲熱浪來襲，你有想過金融圈也能把炎熱的風險定價、對沖嗎？這幾天歐洲熱到英法德各國都測出 1947 年有紀錄以來最熱的一天。</p>
+
+<p>但熱浪真正的風險，不在你流多少汗，而在它會直接影響市場：河流會因為水太燙沒辦法冷卻核電廠，駁船會因為水位太低載不動貨，這些風險都會反映在價格上。金融圈其實很早就發現，天氣本身可以被定價、被對沖，於是包裝出一類叫 weather derivatives 的商品，計價單位叫做 cooling degree days，本質上就是把熱量變成一個可以買賣的數字。</p>
+
+<h2>一切始於電力公司怕夏天太涼爽</h2>
+
+<p>九零年代中期美國能源業開始解除管制，電力與天然氣公司第一次赤裸裸地暴露在一種他們過去無法對沖的風險裡。電價他們早就能用期貨鎖住，但他們鎖不住的是一個涼爽的夏天，因為夏天只要不夠熱，沒人開冷氣，賣電的量就直接腰斬。這種由溫度驅動的需求量風險，在當時是一塊完全沒有工具可以處理的空白。</p>
+
+<p>第一筆被視為 weather derivative 的交易出現在 1996 年 7 月，Aquila Energy 幫 Consolidated Edison 設計了一份結構：ConEd 向 Aquila 買八月的電，價格談定，但合約裡埋了一個天氣條款，如果八月比預期涼，Aquila 要退錢給 ConEd。衡量標準就是紐約中央公園氣象站測到的 cooling degree days，預期值大約 320，如果實際 CDD 比正常低了 11 到 20 個百分點，ConEd 可以拿到一萬六千美元的折扣。一筆把天氣風險縫進能源合約裡的交易，就這樣開了先河。</p>
+
+<p>真正把天氣從能源合約裡獨立出來、變成一個純粹標的的，是 1997 年 Koch 與 Enron 之間那筆以密爾瓦基氣溫為標的的交易，溫度每高出正常一度 Koch 付 Enron 一萬美元，每低一度則反過來，這被認為是第一筆完全脫離能源供應合約的 OTC 天氣衍生品。Aquila、Enron、Koch 這幾家能源交易商就是這個市場最早的拓荒者。</p>
+
+<p>隔年那場 El Niño 帶來的暖冬讓更多能源公司嚇到，意識到自己整張損益表都被綁在天氣上，需求一下子被點燃。芝商所 CME 看準這點，在 1999 年 9 月推出了第一批以 degree day 為標的的交易所掛牌期貨與選擇權，把這門原本私下談的生意標準化。</p>
+
+<p>諷刺的是，這個為了對沖壞天氣而生的市場，後來不是被熱浪打敗的，而是 Enron 在 2001 年崩盤，這個當時最大的造市者一倒，旗下四十八個交易台收掉了三十六個，市場流動性瞬間抽乾，再加上 2008 金融海嘯，weather derivatives 冷凍了將近十年。</p>
+
+<h2>把溫度變成一個可以加總的數字</h2>
+
+<p>這套產品的核心單位叫 degree day，它設一個基準溫度，華氏 65 度，差不多就是攝氏 18 度，這個溫度被當成一般人不開暖氣也不開冷氣的舒適臨界點。每天把當日最高溫和最低溫平均起來，跟這個基準比，低於基準多少度就累積多少個 heating degree day，高於基準多少度就累積多少個 cooling degree day，前者對應冬天的暖氣需求，後者對應夏天的冷氣需求。把一整個月或一整季的 degree day 加總，就得到一個指數，合約就拿這個指數去結算，夏天越熱，CDD 的總數就越大，賭熱的人就賺得越多。</p>
+
+<p>它之所以不直接用溫度而要用 degree day，是因為你真正想對沖的是能源跟需求，而需求是隨著溫度偏離舒適點的幅度跑的，不是隨著絕對溫度跑的，這個換算把一個體感問題翻譯成了一個可以精算的數字。</p>
+
+<p>商品形式上不外乎期貨、選擇權跟交換。交易所的期貨用現金對指數結算，選擇權就是在指數上買賣 call 跟 put，而交換則是兩方約定拿實際天氣對上預期天氣，把差額互相結清。CME 後來除了 HDD 跟 CDD，還推出一種叫 Cumulative Average Temperature 的合約，單純追蹤一個城市整個月的日均溫，這種在歐洲跟夏季合約裡更常見。OTC 場外則玩得更多，可以做上限、下限、區間、甚至數臨界日的結構，你自己定一個履約點，比方 320 個 CDD，定一個每單位的金額，再定一個理賠上限，整張合約就成形了。</p>
+
+<p>這裡面最核心的概念叫 basis risk，因為合約綁的是某個氣象站的數字，但你的生意不會剛好開在那個氣象站旁邊，你可能拿倫敦希斯洛的 CDD 來避險，但你的營收是攤在整個英國的，這種標的跟實際曝險對不齊的縫隙，是這個產品天生擺脫不掉的瑕疵。</p>
+
+<h2>誰在買，誰在賣？</h2>
+
+<p>最天然的買方就是怕天氣變動的人。一家電力公司怕涼夏讓冷氣賣不動，就去買一個 CDD 的下限保護，萬一夏天不夠熱，理賠進來補上掉的營收；一家瓦斯公司怕暖冬讓暖氣需求縮水，就去買一個 HDD 的下限；而像德州那種會把公用事業熱到失眠的酷暑，當地的電力公司更是這個市場現在最積極的客戶。前面 ConEd 那筆其實就是最乾淨的範本，把怕涼夏這件事直接寫成一份保障會付錢的合約。</p>
+
+<p>但這門生意早就跨出能源圈：滑雪場怕暖冬沒雪，啤酒廠、汽水跟冰淇淋業者怕涼夏沒人解渴，農夫怕乾旱跟霜害，營造業怕雨天太多停工，主題樂園跟音樂祭怕整個夏天被雨泡爛。凡是營收被天氣綁架的人，理論上都能進來把那塊風險賣掉，像 Syngenta 的 AgriClime 方案就是拿衍生品包裝成對農民的承諾，天氣不配合就退最多三成的採購金，本質上是一張賣給農夫的天氣保單。</p>
+
+<p>賣方則是收保費承擔風險的人，他們賭的是天氣不出意外，只要那一季風平浪靜，保費就是淨賺，這個角色過去是能源交易台，現在主要是避險基金跟保險公司在扮演。至於成交的地方，這個市場大約九成是場外私下談的，交易所掛牌的部分只是露出水面的一角，而且場外的單越來越多是透過 CME 的 ClearPort 以大宗交易的形式去結算，目的是把交易對手風險洗掉。2023 年八月光是德國埃森一個城市的 HDD 合約，單月就成交了五千口，可以看出歐洲的公用事業正在大舉湧進。</p>
+
+<h2>交易台還做嗎？死過一次，這幾年又活過來</h2>
+
+<p>老實說在 Enron 倒掉跟 2008 之後，銀行那種自營天氣交易台幾乎絕跡，這塊市場當了很多年的冷門角落，沒什麼人提。真正讓它復活的是氣候本身越來越不受控，2023 年 CME 整個天氣衍生品系列的平均成交量比 2022 年暴增超過 260%，未平倉合約年增 48%，雙雙改寫紀錄，CME 也順勢把交易城市從原本的紐約、芝加哥、倫敦、阿姆斯特丹、東京，一口氣擴張到巴黎、埃森、伯班克、休士頓、費城跟波士頓。整個被稱為氣候風險轉移的市場，名目規模被估在 250 億美元以上，而交易所掛牌的活動可能只占其中一成，剩下九成都在場外。</p>
+
+<p>更值得注意的是新的需求引擎已經不只是冷氣跟暖氣，而是再生能源。風電跟太陽能的發電量完全看天吃飯，沒風沒太陽就發不出電，於是風場跟電網營運商開始拿天氣合約去對沖低風低光的時段，這塊的交換交易量被預期未來還會再翻倍。</p>
+
+<p>不過規模上還是要冷靜看，2024 年九月 CME 天氣期貨跟選擇權的平均未平倉量大約 17 萬口，而原油大概是它的十倍上下，所以這仍然是一個利基市場，不是市場的主樑。至於現在到底是誰在承作，答案是交易台搬家了，不再是 Enron 那種能源巨頭的自營桌，而是再保險公司、靠近巨災債券的另類投資人、像 Speedwell Climate 這種專門建構天氣指數的精品公司，加上接另一邊的避險基金，交易所則退到後面當管線。所以這門生意確實還在做，只是從能源交易大廳搬進了再保險跟氣候精品店。</p>
+
+<h2>被重新定價的不只是電力，而是溫度本身</h2>
+
+<p>把鏡頭拉回今年這場熱浪，當歐洲的夏天一年比一年來得早、來得猛，被重新定價的早就不只是電力，而是溫度本身，此刻一定有某檔基金正安靜地做多這個夏天的熱度。</p>
+
+<p>而對一個吹著理所當然的冷氣、邊看歐洲新聞邊納涼的亞洲讀者來說，這故事最諷刺的笑點是，有人早就想好怎麼從歐洲人吹不到冷氣這件事上賺錢了。</p>]]></content:encoded>
+</item>
+<item>
+<title>巴薩與切爾西：足球豪門的結構化融資魔術</title>
+<link>https://londonblackcat.substack.com/p/post-030</link>
+<guid isPermaLink="false">cat-themove-030</guid>
+<pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
+<dc:creator>倫敦黑貓 London Black Cat</dc:creator>
+<description>賣掉未來 25 年轉播權、把合約攤成八年半，頂級俱樂部的財務團隊其實在做投行的結構化融資</description>
+<content:encoded><![CDATA[<p>你以為頂級足球俱樂部是在靠賣球員賺錢嗎？其實，他們真正賣的是未來的現金流。</p>
+
+<p>像巴薩、切爾西這種頂級豪門，其實都養了一個財務團隊，他們做的事跟投資銀行的 Structured Finance 結構化融資部門簡直一模一樣。說到底，他們的核心目標只有一個：怎麼把未來的錢，挪到今天來花。</p>
+
+<h2>頂級足球俱樂部是如何變成完美的現金流機器</h2>
+
+<p>一家頂級俱樂部的收入結構其實高度可預測：轉播權分潤、贊助合約、門票與會員費，這幾條線每年穩定進帳。這種穩定度看在金融業眼裡簡直會發光，對做結構化融資（Structured finance）的人來說，最值錢的資產就是一條又長又穩的未來現金流。</p>
+
+<p>當你手上握有長達二十年的預期收入，銀行跟基金絕對樂意為你量身打造各種金融產品。這也是為什麼過去十年來，足球俱樂部的財務操作，越玩越像華爾街。</p>
+
+<h2>巴薩的經濟槓桿：把未來的自己送進當鋪</h2>
+
+<p>巴薩絕對是把這套邏輯玩到極致的代表。2022 年夏天，為了在西甲嚴苛的薪資上限下硬是註冊 Lewandowski 等新援，高層 Laporta 主導了一筆交易：把未來 25 年西甲國內轉播權的一部分，打包賣給美國基金 Sixth Street。先賣 10%、再賣 15%，換來約六億歐元的現金，順便再切一塊 Barça Studios 的股權變現。他們還幫這個做法取了個好聽的名字，叫「經濟槓桿」（Economic Levers）。</p>
+
+<p>在會計上，這波操作讓巴薩當年憑空生出了帳面利潤，帳做平了，球員也上了。但代價是，未來二十幾年那部分的轉播收入再也不屬於他們。這等同於把未來的自己，抵押給了現在的戰績壓力。</p>
+
+<h2>切爾西的攤銷魔術：把會計規則用到極限</h2>
+
+<p>Boehly 與 Clearlake 集團接手切爾西後，選了另一條路。他們短時間內狂砸十幾億歐元買人，卻給 Enzo Fernández、Mudryk 這些球員開出八年半的超長合約。這在足球圈前所未聞，背後全是會計考量。</p>
+
+<p>轉會費不是一次認列，而是透過攤銷（Amortisation）分攤到整個合約期。一億歐元的球員簽五年，每年帳面成本兩千萬；簽八年半，每年成本瞬間降到一千兩百萬。同樣的支出，在 FFP（財政公平法案）和 PSR（利潤與永續發展規則）的審查表上硬是縮水了一大半。</p>
+
+<p>這不是作弊，這是把會計彈性發揮到極致。聰明到 UEFA 隔年直接出手改規則，把可攤銷年限鎖死在五年，英超隨後跟進，這才堵住了這個漏洞。</p>
+
+<h2>轉會費也能證券化：被忽略的應收帳款融資</h2>
+
+<p>比較少人注意到的是，轉會費本身也能拿來融資。現在的大額轉會極少一次付清，買方通常分三到五期給。於是，賣方帳上就多了一筆確定的未來應收款。</p>
+
+<p>這筆應收款（Transfer receivables）完全可以拿去跟銀行貼現，或是打包成小型的證券化商品提前變現。這跟企業做應收帳款保理（Factoring）毫無二致。對現金流吃緊的中型俱樂部來說，這是常規的續命操作，把還沒收到的錢，換成今天能花的現金，只是每貼現一次，就被剝了一層利息。</p>
+
+<h2>天下沒有白借的錢</h2>
+
+<p>左手是把未來的收入提前變現，右手是用會計手法把現在的成本往後推。說起來滿嘴專業術語，但看穿了就是同一回事：跟未來的自己借錢。這些操作往往都合法也符合商業邏輯，但它們共享同一個致命的結構性缺陷：燃燒未來的收入與彈性，去換取今天的競爭力。</p>
+
+<ul>
+<li>轉播權賣了，長期進帳就少一塊；</li>
+<li>合約攤太長，球員一旦撞牆就變成甩不掉的呆帳；</li>
+<li>應收款瘋狂貼現，未來的現金流只會越來越薄。</li>
+</ul>
+
+<p>這跟 2008 年把風險藏進複雜結構裡的那些金融產品，骨子裡是同一種結構。</p>
+
+<p>當一個機構必須依賴財務工程才能活下去時，通常意味著他們真正該修補的不是財務破洞，而是球場的硬實力。</p>]]></content:encoded>
+</item>
+</channel>
+</rss>
